@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nguyen Can. All rights reserved.
 //
 
-import Foundation
+#if canImport(UIKit)
 import UIKit
 
 // MARK: - UIViewController:PUBLIC
@@ -209,3 +209,5 @@ extension UIView {
         return result
     }
 }
+
+#endif

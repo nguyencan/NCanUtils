@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nguyen Can. All rights reserved.
 //
 
-import Foundation
+#if canImport(UIKit)
 import UIKit
 
 extension UIView {
@@ -45,3 +45,5 @@ extension UIView {
         return view
     }
 }
+
+#endif

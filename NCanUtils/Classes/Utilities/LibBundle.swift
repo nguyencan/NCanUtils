@@ -2,10 +2,11 @@
 //  LibBundle.swift
 //  NCanUtils
 //
-//  Created by SG on 4/28/20.
+//  Created by Nguyen Can on 4/28/20.
 //  Copyright © 2020 Nguyen Can. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 struct ImagesHelper {
@@ -30,3 +31,5 @@ struct ImagesHelper {
         return imageFor(name: "ic-search")
     }
 }
+
+#endif

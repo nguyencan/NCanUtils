@@ -77,6 +77,14 @@ public extension UIApplication {
         }
         return window
     }
+    
+    static func openSettingApp() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            DispatchQueue.main.async {
+                UIApplication.shared.open(url)
+            }
+        }
+    }
 }
 
 // MARK: - KStoryboard

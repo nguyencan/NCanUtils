@@ -30,7 +30,7 @@ class FirstViewController: UIViewController {
     
     @IBAction func actionEmail(_ sender: Any) {
         let text = mInputView?.text ?? ""
-        let result = "\(text.isMail)".uppercased()
+        let result = "\(text.isValidMail)".uppercased()
         mResultLabel?.text = "Email: \(result)"
     }
     
@@ -77,6 +77,20 @@ class FirstViewController: UIViewController {
         NSLog("FirstViewController")
         NSLog("---> Is base root view: \(UIApplication.isBaseOnMainView(withClass: FirstViewController.self))")
         NSLog("---> Is base root view: \(UIApplication.isBaseOnMainView(withClass: SecondViewController.self))")
+        
+        var double: Double = 1.0
+        NSLog("---> Double: \(double) >> \(double.clean)")
+        double = 1.2
+        NSLog("---> Double: \(double) >> \(double.clean)")
+        double = 1.02
+        NSLog("---> Double: \(double) >> \(double.clean)")
+        
+        var float: Float = 1.0
+        NSLog("---> Float: \(float) >> \(float.clean)")
+        float = 1.2
+        NSLog("---> Float: \(float) >> \(float.clean)")
+        float = 1.02
+        NSLog("---> Float: \(float) >> \(float.clean)")
     }
 }
 

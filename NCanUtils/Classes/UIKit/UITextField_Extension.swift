@@ -82,7 +82,7 @@ public extension UITextField {
     ///        textField.hasValidEmail -> false
     ///
     var hasValidEmail: Bool {
-        if let text = text, text.isMail {
+        if let text = text, text.isValidMail {
             return true
         }
         return false
@@ -154,7 +154,73 @@ public extension UITextField {
         leftView?.frame.size = CGSize(width: image.size.width + padding, height: image.size.height)
         leftViewMode = .always
     }
+    
+    func addToolBarPicker(_ picker: UIView
+        , target: AnyObject?
+        , title: String? = nil
+        , doneTitle: String = "Done"
+        , done: Selector
+        , cancelTitle: String = "Cancel"
+        , cancel: Selector
+        , barBackground: UIColor = .lightGray
+        , titleColor: UIColor = .blue
+        , buttonColor: UIColor = .blue) {
+        
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = false
+        toolBar.barTintColor = barBackground
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: doneTitle, style: .plain, target: target, action: done)
+        doneButton.tintColor = buttonColor
+        
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        let cancelButton = UIBarButtonItem(title: cancelTitle, style: .plain, target: target, action: cancel)
+        cancelButton.tintColor = buttonColor
+        
+        if let title = title, !title.isEmpty {
+            let lastUpdateLabel = UILabel(frame: CGRect.zero)
+            lastUpdateLabel.text = title
+            lastUpdateLabel.textColor = titleColor
+            lastUpdateLabel.font = UIFont.boldSystemFont(ofSize: 15)
+            lastUpdateLabel.backgroundColor = .clear
+            lastUpdateLabel.textAlignment = .center
+            lastUpdateLabel.sizeToFit()
+            
+            let titleView = UIBarButtonItem(customView: lastUpdateLabel)
+            toolBar.setItems([cancelButton, spaceButton, titleView, spaceButton, doneButton], animated: true)
+        } else {
+            toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
+        }
+        toolBar.isUserInteractionEnabled = true
+        
+        picker.backgroundColor = .white
+        self.inputView = picker
+        self.inputAccessoryView = toolBar
+    }
 
+    func int() -> Int {
+        if let text = self.text, let value = Int(text) {
+            return value
+        }
+        return 0
+    }
+    
+    func double() -> Double {
+        if let text = self.text, let value = Double(text) {
+            return value
+        }
+        return 0
+    }
+    
+    func float() -> Float {
+        if let text = self.text, let value = Float(text) {
+            return value
+        }
+        return 0
+    }
 }
 
 #endif
