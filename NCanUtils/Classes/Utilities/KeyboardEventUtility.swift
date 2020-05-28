@@ -182,17 +182,6 @@ extension UITapGestureRecognizer {
 // MARK: - UIView:PRIVATE
 extension UIView {
     
-    fileprivate var firstResponder: UIView? {
-        guard !isFirstResponder else { return self }
-        
-        for subview in subviews {
-            if let firstResponder = subview.firstResponder {
-                return firstResponder
-            }
-        }
-        return nil
-    }
-    
     fileprivate func getInputViews() -> [UIView] {
         var result: [UIView] = []
         for subview in self.subviews {

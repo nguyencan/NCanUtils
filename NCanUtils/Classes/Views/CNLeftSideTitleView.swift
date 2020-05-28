@@ -1,5 +1,5 @@
 //
-//  LeftSideTitleView.swift
+//  CNLeftSideTitleView.swift
 //  NCanUtils
 //
 //  Created by Nguyen Can on 4/28/20.
@@ -9,7 +9,7 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-class LeftSideTitleView: UIView {
+class CNLeftSideTitleView: UIView {
     
     lazy var button: CustomButton = {
         let button = CustomButton()

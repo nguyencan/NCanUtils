@@ -27,7 +27,7 @@ public extension UINavigationItem {
     }
     
     func showLeftTitle(_ image: UIImage?, title: String, notiId: String = "", completion: (() -> Void)? = nil) {
-        let view = LeftSideTitleView()
+        let view = CNLeftSideTitleView()
         view.set(image, title: title)
         view.getAction().actionHandler(controlEvents: .touchUpInside) {
             if let completion = completion {
@@ -64,7 +64,7 @@ public extension UINavigationItem {
         , notiId: String = ""
         , completion: (() -> Void)? = nil) {
         
-        let view = LeftSideTitleView()
+        let view = CNLeftSideTitleView()
         view.set(title
             , titleColor: titleColor
             , titleSize: titleSize

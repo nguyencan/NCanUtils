@@ -19,7 +19,7 @@ public extension Color {
         let red = Int.random(in: 0...255)
         let green = Int.random(in: 0...255)
         let blue = Int.random(in: 0...255)
-        return Color(red: red, green: green, blue: blue)!
+        return Color(red: red, green: green, blue: blue)
     }
 
     /// NCanUtils: RGB components for a Color (between 0 and 255).
@@ -255,16 +255,42 @@ public extension Color {
     ///   - green: green component.
     ///   - blue: blue component.
     ///   - transparency: optional transparency value (default is 1).
-    convenience init?(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
-        guard red >= 0 && red <= 255 else { return nil }
-        guard green >= 0 && green <= 255 else { return nil }
-        guard blue >= 0 && blue <= 255 else { return nil }
+    convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
+        var hred: CGFloat
+        if red < 0 {
+            hred = 0
+        } else if red > 255 {
+            hred = 255
+        } else {
+            hred = CGFloat(red)
+        }
+        hred = hred / 255.0
+        
+        var hgreen: CGFloat
+        if green < 0 {
+            hgreen = 0
+        } else if green > 255 {
+            hgreen = 255
+        } else {
+            hgreen = CGFloat(green)
+        }
+        hgreen = hgreen / 255.0
+        
+        var hblue: CGFloat
+        if blue < 0 {
+            hblue = 0
+        } else if blue > 255 {
+            hblue = 255
+        } else {
+            hblue = CGFloat(blue)
+        }
+        hblue = hblue / 255.0
 
         var trans = transparency
         if trans < 0 { trans = 0 }
         if trans > 1 { trans = 1 }
 
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
+        self.init(red: hred, green: hgreen, blue: hblue, alpha: trans)
     }
 
     /// NCanUtils: Create Color from hexadecimal value with optional transparency.
@@ -272,7 +298,7 @@ public extension Color {
     /// - Parameters:
     ///   - hex: hex Int (example: 0xDECEB5).
     ///   - transparency: optional transparency value (default is 1).
-    convenience init?(hex: Int, transparency: CGFloat = 1) {
+    convenience init(hex: Int, transparency: CGFloat = 1) {
         var trans = transparency
         if trans < 0 { trans = 0 }
         if trans > 1 { trans = 1 }
