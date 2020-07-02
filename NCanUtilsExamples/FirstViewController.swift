@@ -91,6 +91,31 @@ class FirstViewController: UIViewController {
         NSLog("---> Float: \(float) >> \(float.clean)")
         float = 1.02
         NSLog("---> Float: \(float) >> \(float.clean)")
+        float = 1005000
+        NSLog("---> Money collapse: \(float) >> \(Money.collapse(money: float))")
+        float = 1050000
+        NSLog("---> Money collapse: \(float) >> \(Money.collapse(money: float))")
+        float = 1500000
+        NSLog("---> Money collapse: \(float) >> \(Money.collapse(money: float))")
+        
+        let nilFloat: Float? = nil
+        NSLog("---> Money collapse: \(String(describing: nilFloat)) >> \(Money.collapse(money: nilFloat))")
+        NSLog("---> Money collapse: \(String(describing: nilFloat)) with default >> \(Money.collapse(money: nilFloat, default: "ABC"))")
+        
+        var moneyString: String = ""
+        NSLog("Money String to Float: \(moneyString) >> \(Money.toFloat(money: moneyString))")
+        moneyString = "1.000"
+        NSLog("Money String to Float: \(moneyString) >> \(Money.toFloat(money: moneyString))")
+        moneyString = "1.000,25"
+        NSLog("Money String to Float: \(moneyString) >> \(Money.toFloat(money: moneyString))")
+        moneyString = "1.000,00"
+        NSLog("Money String to Float: \(moneyString) >> \(Money.toFloat(money: moneyString))")
+        moneyString = "1,000.00"
+        NSLog("Money String to Float: \(moneyString) >> \(Money.toFloat(money: moneyString, grouped: ",", decimal: "."))")
+        moneyString = "1 000.00"
+        NSLog("Money String to Float: \(moneyString) >> \(Money.toFloat(money: moneyString, grouped: " ", decimal: "."))")
+        
+        NSLog("Formatter: \(DateFormatter.string(Date(), format: .full))")
     }
 }
 

@@ -62,18 +62,38 @@ public extension DateFormatter {
         return nil
     }
     
+    /// NCanUtils: Convert date to string with format "dd/MM/yyyy"
+    ///
+    ///     let date = Date()
+    ///     DateFormatter.displayDate(date) -> "15/06/2020"
+    ///
     static func displayDate(_ date: Date) -> String {
         return string(date, format: .date)
     }
     
+    /// NCanUtils: Convert date to string with format "HH:mm:ss"
+    ///
+    ///     let date = Date()
+    ///     DateFormatter.displayTime(date) -> "14:35:40"
+    ///
     static func displayTime(_ date: Date) -> String {
         return string(date, format: .timeFull)
     }
     
+    /// NCanUtils: Convert date to string with format
+    ///
+    ///     let date = Date()
+    ///     DateFormatter.string(date, format: DateFormatter.Format.full) -> "2020-06-15T14:35:40"
+    ///
     static func string(_ date: Date, format: Format) -> String {
         return string(date, format: format.rawValue)
     }
     
+    /// NCanUtils: Convert date to string with format
+    ///
+    ///     let date = Date()
+    ///     DateFormatter.string(date, format: "yyyy-MM-dd'T'HH:mm:ss") -> "2020-06-15T14:35:40"
+    ///
     static func string(_ date: Date, format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format

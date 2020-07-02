@@ -45,7 +45,11 @@ public extension UITextView {
         if let view = viewWithTag(UITextView.indicatorTag) as? UIActivityIndicatorView {
             indicatorView = view
         } else {
-            indicatorView = UIActivityIndicatorView(style: .large)
+            if #available(iOS 13.0, *) {
+                indicatorView = UIActivityIndicatorView(style: .large)
+            } else {
+                indicatorView = UIActivityIndicatorView(style: .whiteLarge)
+            }
             self.addSubview(indicatorView)
         }
         indicatorView.tag = UITextView.indicatorTag

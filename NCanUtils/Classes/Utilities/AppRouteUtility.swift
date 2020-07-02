@@ -68,7 +68,9 @@ public extension UIApplication {
     
     static func getWindow() -> UIWindow? {
         let window: UIWindow?
-        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let sceneWindow = scene.windows.first {
+        if #available(iOS 13.0, *)
+            , let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            , let sceneWindow = scene.windows.first {
             window = sceneWindow
         } else if let appWindow = UIApplication.shared.delegate?.window {
             window = appWindow

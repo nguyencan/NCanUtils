@@ -9,6 +9,16 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+public enum KeyboardStyleMode : Int {
+
+    
+    case unspecified
+
+    case light
+
+    case dark
+}
+
 // MARK: - Enums
 public extension UITextField {
 
@@ -71,6 +81,27 @@ public extension UITextField {
     /// NCanUtils: Return text with no spaces or new lines in beginning and end.
     var trimmedText: String? {
         return text?.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    var intValue: Int {
+        if let text = self.text, let value = Int(text) {
+            return value
+        }
+        return 0
+    }
+    
+    var doubleValue: Double {
+        if let text = self.text, let value = Double(text) {
+            return value
+        }
+        return 0
+    }
+    
+    var floatValue: Float {
+        if let text = self.text, let value = Float(text) {
+            return value
+        }
+        return 0
     }
 
     /// NCanUtils: Check if textFields text is a valid email format.
@@ -155,6 +186,20 @@ public extension UITextField {
         leftViewMode = .always
     }
     
+    /// NCanUtils: Add picker to keyboard
+    ///
+    /// - Parameters:
+    ///   - picker: picker view
+    ///   - target: action target
+    ///   - title: picker title
+    ///   - doneTitle: title of done button
+    ///   - done: action of done button
+    ///   - cancelTitle: title of cancel button
+    ///   - cancel: action of cancel button
+    ///   - barBackground: background of title bar
+    ///   - titleColor: text color of title
+    ///   - buttonColor: text color of buttons
+    ///   - style: style mode of keyboard
     func addToolBarPicker(_ picker: UIView
         , target: AnyObject?
         , title: String? = nil
@@ -164,7 +209,8 @@ public extension UITextField {
         , cancel: Selector
         , barBackground: UIColor = .lightGray
         , titleColor: UIColor = .blue
-        , buttonColor: UIColor = .blue) {
+        , buttonColor: UIColor = .blue
+        , style: KeyboardStyleMode = .unspecified) {
         
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
         toolBar.barStyle = .default
@@ -196,31 +242,30 @@ public extension UITextField {
         }
         toolBar.isUserInteractionEnabled = true
         
-        picker.backgroundColor = .white
+        if style == .light {
+            picker.backgroundColor = .white
+            self.keyboardAppearance = .light
+        } else if style == .dark {
+            picker.backgroundColor = .black
+            self.keyboardAppearance = .dark
+        } else {
+            if #available(iOS 12.0, *) {
+                if self.traitCollection.userInterfaceStyle == .dark {
+                    picker.backgroundColor = .black
+                    self.keyboardAppearance = .dark
+                } else {
+                    picker.backgroundColor = .white
+                    self.keyboardAppearance = .light
+                }
+            } else {
+                picker.backgroundColor = .white
+                self.keyboardAppearance = .light
+            }
+        }
         self.inputView = picker
         self.inputAccessoryView = toolBar
     }
-
-    func int() -> Int {
-        if let text = self.text, let value = Int(text) {
-            return value
-        }
-        return 0
-    }
     
-    func double() -> Double {
-        if let text = self.text, let value = Double(text) {
-            return value
-        }
-        return 0
-    }
-    
-    func float() -> Float {
-        if let text = self.text, let value = Float(text) {
-            return value
-        }
-        return 0
-    }
 }
 
 #endif

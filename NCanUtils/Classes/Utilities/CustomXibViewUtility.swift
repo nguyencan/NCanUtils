@@ -24,6 +24,10 @@ extension UIView {
         }
     }
     
+    /// NCanUtils: Initilize for custom view with xib file.
+    /// 
+    /// - Call in init(frame) & init(decoder) of custom view class
+    ///
     public func initilizeForCustomXibView() {
         contentView = loadViewFromNib()
         // use bounds not frame or it'll be offset

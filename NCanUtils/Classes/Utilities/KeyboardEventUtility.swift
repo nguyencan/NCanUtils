@@ -12,12 +12,20 @@ import UIKit
 // MARK: - UIViewController:PUBLIC
 extension UIViewController {
     
+    /// NCanUtils: Remove keyboard listener
+    ///
+    /// - Call in viewDidDisappear of UIViewController
+    ///
     public func removeKeyboardEvent() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
     }
     
+    /// NCanUtils: Register keyboard listener
+    ///
+    /// - Call in viewWillAppear of UIViewController
+    ///
     public func registerKeyboardEvent(_ scrollView: UIScrollView?, bottomBar: (view: UIView, height: CGFloat)? = nil, tapOutToHide: Bool = true) {
         self.scroller = scrollView
         self.bottomBar = bottomBar

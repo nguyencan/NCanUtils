@@ -83,16 +83,16 @@ open class CNTransitionInfo {
     
 }
 
-open class CNImageViewerController: UIViewController {
+open class CNImageViewer: UIViewController {
     
     public static func present(image: UIImage, link: URL? = nil, source: UIView?, target: UIViewController) {
-        let imageViewer: CNImageViewerController
+        let imageViewer: CNImageViewer
         if let view = source {
             let imageInfo = CNImageInfo(image: image, imageMode: .aspectFit, imageHD: link)
             let transition = CNTransitionInfo(fromView: view)
-            imageViewer = CNImageViewerController(imageInfo: imageInfo, transitionInfo: transition)
+            imageViewer = CNImageViewer(imageInfo: imageInfo, transitionInfo: transition)
         } else {
-            imageViewer = CNImageViewerController(image: image, imageMode: .scaleAspectFit, imageHD: link, fromView: nil)
+            imageViewer = CNImageViewer(image: image, imageMode: .scaleAspectFit, imageHD: link, fromView: nil)
             imageViewer.modalPresentationStyle = .fullScreen
         }
         target.present(imageViewer, animated: true, completion: nil)
@@ -321,7 +321,7 @@ open class CNImageViewerController: UIViewController {
     
 }
 
-extension CNImageViewerController: UIScrollViewDelegate {
+extension CNImageViewer: UIScrollViewDelegate {
     
     public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
@@ -333,7 +333,7 @@ extension CNImageViewerController: UIScrollViewDelegate {
     
 }
 
-extension CNImageViewerController: UIViewControllerTransitioningDelegate {
+extension CNImageViewer: UIViewControllerTransitioningDelegate {
     
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CNImageViewerTransition(imageInfo: imageInfo, transitionInfo: transitionInfo!, transitionMode: .present)
@@ -386,7 +386,7 @@ class CNImageViewerTransition: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(tempImage)
         
         if transitionMode == .present {
-            let imageViewer = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! CNImageViewerController
+            let imageViewer = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! CNImageViewer
                 imageViewer.view.layoutIfNeeded()
             
             tempBackground.alpha = 0
@@ -409,7 +409,7 @@ class CNImageViewerTransition: NSObject, UIViewControllerAnimatedTransitioning {
         }
         
         else if transitionMode == .dismiss {
-            let imageViewer = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! CNImageViewerController
+            let imageViewer = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! CNImageViewer
                 imageViewer.view.removeFromSuperview()
             
             tempBackground.alpha = imageViewer.panViewAlpha
@@ -438,7 +438,7 @@ class CNImageViewerTransition: NSObject, UIViewControllerAnimatedTransitioning {
     }
 }
 
-extension CNImageViewerController: UIGestureRecognizerDelegate {
+extension CNImageViewer: UIGestureRecognizerDelegate {
     
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if let pan = gestureRecognizer as? UIPanGestureRecognizer {

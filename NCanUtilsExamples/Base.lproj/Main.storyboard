@@ -207,20 +207,35 @@
                                     <action selector="actionChangeView:" destination="aa6-oN-FOl" eventType="touchUpInside" id="wJV-Bk-vDe"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="img_1" translatesAutoresizingMaskIntoConstraints="NO" id="g77-vD-5BU">
+                                <rect key="frame" x="120" y="169" width="80" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="kxN-YX-fSO"/>
+                                    <constraint firstAttribute="width" secondItem="g77-vD-5BU" secondAttribute="height" multiplier="4:3" id="pb3-t5-rIc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="g77-vD-5BU" firstAttribute="top" secondItem="kDn-Tr-fLW" secondAttribute="bottom" constant="28" id="69G-8i-ka4"/>
                             <constraint firstItem="eXH-kh-mov" firstAttribute="top" secondItem="Z9c-4a-OhF" secondAttribute="top" constant="60" id="SBx-BS-P9P"/>
                             <constraint firstItem="kDn-Tr-fLW" firstAttribute="top" secondItem="eXH-kh-mov" secondAttribute="bottom" constant="30" id="dyk-Oq-yrx"/>
                             <constraint firstItem="kDn-Tr-fLW" firstAttribute="centerX" secondItem="Z9c-4a-OhF" secondAttribute="centerX" id="gCi-rD-nvK"/>
+                            <constraint firstItem="g77-vD-5BU" firstAttribute="centerX" secondItem="Z9c-4a-OhF" secondAttribute="centerX" id="hFB-gE-ciY"/>
                             <constraint firstItem="eXH-kh-mov" firstAttribute="centerX" secondItem="Z9c-4a-OhF" secondAttribute="centerX" id="j23-uS-K5l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z9c-4a-OhF"/>
                     </view>
+                    <connections>
+                        <outlet property="viewImage" destination="g77-vD-5BU" id="DUb-jS-uCu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wj7-KC-zwb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1044" y="100"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_1" width="1280" height="960"/>
+    </resources>
 </document>

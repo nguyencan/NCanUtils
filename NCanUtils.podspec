@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author             = { "Nguyen Can" => "cannc.92tf@gmail.com" }
 
-  spec.ios.deployment_target = "13.2"
+  spec.ios.deployment_target = "10.0"
   spec.swift_version = "5.0"
 
   spec.source       = { :git => "https://github.com/nguyencan/NCanUtils.git", :tag => "#{spec.version}" }
