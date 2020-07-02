@@ -17,8 +17,8 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/nguyencan/NCanUtils.git", :tag => "#{spec.version}" }
   spec.source_files  = "NCanUtils/**/*.{h,m,swift,xcassets,storyboard}"
-  spec.resource_bundles = {
-  	'NCanUtilsBundle' => ['NCanUtils/*/Assets.xcassets']
-  }
+  # spec.resource_bundles = {
+  # 	'NCanUtilsBundle' => ['NCanUtils/*/Assets.xcassets']
+  # }
 
 end
