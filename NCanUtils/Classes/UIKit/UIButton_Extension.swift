@@ -2,7 +2,7 @@
 //  UIButton_Extension.swift
 //  NCanUtils
 //
-//  Created by SG on 4/28/20.
+//  Created by Nguyen Can on 4/28/20.
 //  Copyright © 2020 Nguyen Can. All rights reserved.
 //
 
@@ -21,6 +21,8 @@ public extension UIButton {
         self.actionHandler()
     }
     
+    /// NCanUtils: Add action for button
+    ///
     func actionHandler(controlEvents control: UIControl.Event, ForAction action: @escaping () -> Void) {
         self.actionHandler(action: action)
         self.addTarget(self, action: #selector(triggerActionHandler), for: control)

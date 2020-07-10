@@ -9,7 +9,7 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-// MARK: - Methods
+// MARK: - UILable:Methods
 public extension UILabel {
 
     /// NCanUtils: Initialize a UILabel with text

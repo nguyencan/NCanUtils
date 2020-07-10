@@ -242,7 +242,23 @@ public extension Color {
                      blue: max(blue + percentage, 1),
                      alpha: alpha)
     }
-
+    
+    /// Creates a new color with the given alpha value.
+    ///
+    /// For example, `UIColor(0xFF0000).alpha(0.5)` defines a red color with 50% opacity.
+    ///
+    /// - returns: A UIColor representation of the Int with the given alpha value.
+    func alpha(_ value: CGFloat) -> UIKit.UIColor {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        return UIKit.UIColor(red: red, green: green, blue: blue, alpha: value)
+    }
+    
 }
 
 // MARK: - Initializers

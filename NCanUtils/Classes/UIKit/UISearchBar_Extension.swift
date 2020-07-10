@@ -51,7 +51,7 @@ public extension UISearchBar {
         }
     }
     
-    func setBoxStyle(textColor: UIColor = .black, placeholderColor: UIColor = .darkGray, textSize: CGFloat? = nil, backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.25)) {
+    func setBoxStyle(textColor: UIColor = .black, placeholderColor: UIColor = .darkGray, textSize: CGFloat? = nil, backgroundColor: UIColor = UIColor.black.alpha(0.25)) {
         self.setImage(ImagesHelper.clear, for: .clear, state: .normal)
         self.setImage(ImagesHelper.search, for: .search, state: .normal)
         self.tintColor = textColor

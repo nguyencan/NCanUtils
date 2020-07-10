@@ -292,7 +292,7 @@ open class CNImageViewer: UIViewController {
             
             scrollView.center = getChanged()
             panViewAlpha = 1 - getProgress()
-            view.backgroundColor = backgroundColor.withAlphaComponent(panViewAlpha)
+            view.backgroundColor = backgroundColor.alpha(panViewAlpha)
             gesture.setTranslation(CGPoint.zero, in: nil)
 
         case .ended:

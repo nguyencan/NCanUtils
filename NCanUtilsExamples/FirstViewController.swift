@@ -14,7 +14,17 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var mScrollView: UIScrollView!
     @IBOutlet weak var mBottomBar: UIView!
     @IBOutlet weak var mInputView: UITextField!
-    @IBOutlet weak var mResultLabel: UILabel!
+    @IBOutlet weak var mResultLabel: DesignableLabel! {
+        didSet {
+            mResultLabel.textInsets = EdgeInsets(left: 16, right: 16)
+//            mResultLabel.addBorderByDashed(color: .red)
+            mResultLabel.border = BorderStyle(colors: [.red], length: 4, space: 2)
+            mResultLabel.corners = CornerStyle(radius: 5)
+            mResultLabel.background = BackgroundStyle(colors: [UIColor.blue.alpha(0.5), UIColor.blue.alpha(0.1)])
+            
+            mResultLabel.textColor = .white
+        }
+    }
     
     @IBAction func actionPhoneNumber(_ sender: Any) {
         let text = mInputView?.text ?? ""
@@ -55,6 +65,19 @@ class FirstViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let start = UIColor(hex: 0x43E695)
+        let end = UIColor(hex: 0x3BB2B8)
+
+//        mBottomBar.addBorderBySide(.top, color: .green)
+        mBottomBar.addBorderBySide(.top, colors: [start, end])
+        mBottomBar.backgroundColor = .lightGray
+//        mInputView.addBorder(color: .red)
+        mInputView.addBorder(colors: [start, end])
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -73,6 +96,8 @@ class FirstViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+//        mInputView.addDashedLineBorder(color: .blue)
         
         NSLog("FirstViewController")
         NSLog("---> Is base root view: \(UIApplication.isBaseOnMainView(withClass: FirstViewController.self))")
