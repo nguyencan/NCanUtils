@@ -20,6 +20,26 @@ public extension NSDictionary {
         return keys.contains(key)
     }
     
+    func removeNullValues() -> NSDictionary {
+        let replaced = NSMutableDictionary.init(dictionary: self)
+        for (key, value) in self {
+            if value is NSNull {
+                replaced.setValue("", forKey: key as! String)
+            } else if let dic = value as? NSDictionary {
+                replaced.setObject(dic.removeNullValues(), forKey: key as! NSCopying)
+            } else if let array = value as? NSArray {
+                var result: [Any] = []
+                for item in array {
+                    if let dic = item as? NSDictionary {
+                        result.append(dic.removeNullValues())
+                    }
+                }
+                replaced.setObject(result, forKey: key as! NSCopying)
+            }
+        }
+        return NSDictionary.init(dictionary: replaced)
+    }
+    
     func dictionary(forKey key: String) -> [String: Any]? {
         if let data = self[key] {
             if let value = data as? [String: Any] {

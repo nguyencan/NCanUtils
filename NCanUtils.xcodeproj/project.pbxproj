@@ -12,6 +12,8 @@
 		4004CEE8245849D300E82F10 /* CGRect_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004CEE7245849D300E82F10 /* CGRect_Extension.swift */; };
 		4004CEEA2458601C00E82F10 /* CGSize_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004CEE92458601C00E82F10 /* CGSize_Extension.swift */; };
 		4004CEEC2458608600E82F10 /* CGPoint_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004CEEB2458608600E82F10 /* CGPoint_Extension.swift */; };
+		40235D7E24BBFFDE00B29346 /* CALayer_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40235D7D24BBFFDE00B29346 /* CALayer_Extension.swift */; };
+		40235D8024BC11A700B29346 /* Shadow_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40235D7F24BC11A700B29346 /* Shadow_Extension.swift */; };
 		40249D6024573B4D00EF8B5E /* UserDefaults_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40249D5F24573B4D00EF8B5E /* UserDefaults_Extension.swift */; };
 		40249D6224573F3100EF8B5E /* Dictionary_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40249D6124573F3100EF8B5E /* Dictionary_Extension.swift */; };
 		406ADC1324559D0500D73051 /* NCanUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 406ADC1124559D0500D73051 /* NCanUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,6 +71,8 @@
 		4004CEE7245849D300E82F10 /* CGRect_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect_Extension.swift; sourceTree = "<group>"; };
 		4004CEE92458601C00E82F10 /* CGSize_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize_Extension.swift; sourceTree = "<group>"; };
 		4004CEEB2458608600E82F10 /* CGPoint_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint_Extension.swift; sourceTree = "<group>"; };
+		40235D7D24BBFFDE00B29346 /* CALayer_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer_Extension.swift; sourceTree = "<group>"; };
+		40235D7F24BC11A700B29346 /* Shadow_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow_Extension.swift; sourceTree = "<group>"; };
 		40249D5F24573B4D00EF8B5E /* UserDefaults_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults_Extension.swift; sourceTree = "<group>"; };
 		40249D6124573F3100EF8B5E /* Dictionary_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary_Extension.swift; sourceTree = "<group>"; };
 		406ADC0E24559D0500D73051 /* NCanUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NCanUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				40B20AC424B6F83200F5388A /* Models.swift */,
-				40D51A472457CDE800BD856D /* EdgeInsets_Extension.swift */,
 				406ADC3B2455D15300D73051 /* Font_Extension.swift */,
 				40D51A452457C78800BD856D /* Color_Extension.swift */,
 				406ADC372455CB4700D73051 /* Image_Extension.swift */,
@@ -168,7 +171,10 @@
 		4004CEEE245866B700E82F10 /* GraphKit */ = {
 			isa = PBXGroup;
 			children = (
+				40235D7D24BBFFDE00B29346 /* CALayer_Extension.swift */,
+				40235D7F24BC11A700B29346 /* Shadow_Extension.swift */,
 				4004CEE7245849D300E82F10 /* CGRect_Extension.swift */,
+				40D51A472457CDE800BD856D /* EdgeInsets_Extension.swift */,
 				4004CEE92458601C00E82F10 /* CGSize_Extension.swift */,
 				4004CEEB2458608600E82F10 /* CGPoint_Extension.swift */,
 			);
@@ -433,7 +439,9 @@
 				40D51A4F2457D8DB00BD856D /* AppRouteUtility.swift in Sources */,
 				4004CEE8245849D300E82F10 /* CGRect_Extension.swift in Sources */,
 				4004CEE62458471500E82F10 /* UITextField_Extension.swift in Sources */,
+				40235D8024BC11A700B29346 /* Shadow_Extension.swift in Sources */,
 				40D51A462457C78800BD856D /* Color_Extension.swift in Sources */,
+				40235D7E24BBFFDE00B29346 /* CALayer_Extension.swift in Sources */,
 				40D51A532457F28E00BD856D /* UIViewController_Extension.swift in Sources */,
 				40DA9A4024B5AE95002BD3CD /* UIButton_RippleEffect.swift in Sources */,
 			);

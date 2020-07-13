@@ -99,23 +99,8 @@ public class DesignableButton: UIButton {
         drawBackgroundIfNeeds(colors: background.colors, direction: background.direction, radius: corners.radius, corners: corners.corners)
         // Draw border if needs
         drawBorderIfNeeds(colors: border.colors, lineWidth: border.width, dashLength: border.length, dashSpace: border.space, radius: corners.radius, corners: corners.corners)
-        
-        
     }
     
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        // Draw shadow
-        if shadowSpread == 0 {
-            layer.shadowPath = nil
-        } else {
-            let dx = -shadowSpread
-            let rect = bounds.insetBy(dx: dx, dy: dx)
-            layer.shadowPath = UIBezierPath(rect: rect).cgPath
-        }
-    }
-
 }
 
 // MARK: - DesignableButton:Shadow
@@ -172,18 +157,10 @@ public extension DesignableButton {
     
     @IBInspectable var shadowSpread: CGFloat {
         get {
-            return (objc_getAssociatedObject(self, &AssociatedKeys.shadowSpread) as? CGFloat ?? 0)
+            return layer.shadowSpread
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.shadowSpread, newValue as CGFloat, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            // Draw shadow
-            if shadowSpread == 0 {
-                layer.shadowPath = nil
-            } else {
-                let dx = -shadowSpread
-                let rect = bounds.insetBy(dx: dx, dy: dx)
-                layer.shadowPath = UIBezierPath(rect: rect).cgPath
-            }
+            layer.shadowSpread = newValue
         }
     }
 }

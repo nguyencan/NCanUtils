@@ -87,6 +87,13 @@ public class DesignableView: UIView {
         
         super.draw(rect)
     }
+    
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // Draw shadow
+        layer.refreshShadowSpread()
+    }
 }
 
 #endif

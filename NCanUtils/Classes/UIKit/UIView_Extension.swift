@@ -515,7 +515,6 @@ public extension UIView {
     /// NCanUtils: Remove shadow from view
     func removeShadow() {
         layer.shadowColor = nil
-        layer.shadowPath = nil
     }
 
     /// NCanUtils: Add shadow to view.
@@ -525,15 +524,17 @@ public extension UIView {
     ///   - radius: shadow radius (default is 3)
     ///   - offset: shadow offset (default is .zero)
     ///   - opacity: shadow opacity (default is 0.5)
-    func addShadow(ofColor color: UIColor = UIColor.lightGray
-        , radius: CGFloat = 3
-        , offset: CGSize = .zero
-        , opacity: Float = 0.5)
+    func addShadow(
+        color: UIColor = UIColor.lightGray,
+        radius: CGFloat = 3,
+        offset: CGSize = .zero,
+        opacity: Float = 0.5)
     {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
         layer.shadowOpacity = opacity
+        layer.shadowSpread = 0
         layer.masksToBounds = false
     }
     
@@ -548,14 +549,8 @@ public extension UIView {
         layer.shadowColor = color.cgColor
         layer.shadowOpacity = alpha
         layer.shadowOffset = CGSize(width: x, height: y)
-        layer.shadowRadius = blur / 2.0
-        if spread == 0 {
-            layer.shadowPath = nil
-        } else {
-            let dx = -spread
-            let rect = bounds.insetBy(dx: dx, dy: dx)
-            layer.shadowPath = UIBezierPath(rect: rect).cgPath
-        }
+        layer.shadowBlur = blur
+        layer.shadowSpread = spread
         layer.masksToBounds = false
     }
 }
