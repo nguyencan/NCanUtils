@@ -14,12 +14,18 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var mScrollView: UIScrollView!
     @IBOutlet weak var mBottomBar: UIView!
     @IBOutlet weak var mInputView: UITextField!
+    @IBOutlet weak var mControlView: DesignableControl! {
+        didSet {
+            mControlView.addRoundCorners()
+            mControlView.addShadow()
+            mControlView.isEnabled = true
+        }
+    }
     @IBOutlet weak var mResultLabel: DesignableLabel! {
         didSet {
             mResultLabel.textInsets = EdgeInsets(left: 16, right: 16)
-//            mResultLabel.addBorderByDashed(color: .red)
             mResultLabel.border = BorderStyle(colors: [.red], length: 4, space: 2)
-            mResultLabel.corners = CornerStyle(radius: 5)
+            mResultLabel.corners = CornerStyle(corners: [.topLeft, .bottomRight], radius: 15)
             mResultLabel.background = BackgroundStyle(colors: [UIColor.blue.alpha(0.5), UIColor.blue.alpha(0.1)])
             
             mResultLabel.textColor = .white
@@ -48,12 +54,22 @@ class FirstViewController: UIViewController {
         let text = mInputView?.text ?? ""
         let result = "\(text.isAllDigits)".uppercased()
         mResultLabel?.text = "All Digits: \(result)"
+        
+        ProgressView.show(style: .circle)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            ProgressView.dismiss()
+        }
     }
     
     @IBAction func actionNumberic(_ sender: Any) {
         let text = mInputView?.text ?? ""
         let result = "\(text.isNumberic)".uppercased()
         mResultLabel?.text = "Numberic: \(result)"
+        
+        ProgressView.show(style: .point)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            ProgressView.dismiss()
+        }
     }
     
     @IBAction func actionChangeView(_ sender: Any) {

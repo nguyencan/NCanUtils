@@ -10,7 +10,7 @@
 import UIKit
 
 @IBDesignable
-public class DesignableButton: UIButton {
+open class DesignableButton: UIButton {
     
     private struct AssociatedKeys {
         static var border: String = "NCanUtils+DesignableButton:border"
@@ -19,7 +19,7 @@ public class DesignableButton: UIButton {
         static var shadowSpread: String = "NCanUtils+DesignableButton:shadowSpread"
     }
     
-    var border: BorderStyle {
+    public var border: BorderStyle {
         get {
             if let result = objc_getAssociatedObject(self, &AssociatedKeys.border) as? BorderStyle {
                 return result
@@ -38,7 +38,7 @@ public class DesignableButton: UIButton {
         }
     }
     
-    var corners: CornerStyle {
+    public var corners: CornerStyle {
         get {
             if let result = objc_getAssociatedObject(self, &AssociatedKeys.corners) as? CornerStyle {
                 return result
@@ -82,8 +82,8 @@ public class DesignableButton: UIButton {
     public override var isHighlighted: Bool {
         didSet {
             if isHighlighted {
-                imageView?.alpha = 0.6
-                titleLabel?.alpha = 0.6
+                imageView?.alpha = CNManager.shared.style.highlightedAlpha
+                titleLabel?.alpha = CNManager.shared.style.highlightedAlpha
             } else{
                 imageView?.alpha = 1.0
                 titleLabel?.alpha = 1.0

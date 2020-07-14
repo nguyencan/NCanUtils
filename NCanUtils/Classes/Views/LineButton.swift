@@ -10,27 +10,27 @@
 import UIKit
 
 @IBDesignable
-public class LineButton: DesignableButton {
+open class LineButton: DesignableButton {
     
-    @IBInspectable var startColor: UIColor = .black {
+    @IBInspectable public var startColor: UIColor? = nil {
         didSet {
             refreshBorder()
         }
     }
     
-    @IBInspectable var endColor: UIColor = .black {
+    @IBInspectable public var endColor: UIColor? = nil {
         didSet {
             refreshBorder()
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat = 1 {
+    @IBInspectable public var borderWidth: CGFloat = 1 {
         didSet {
             refreshBorder()
         }
     }
 
-    @IBInspectable var effectTitleColor: Bool = false {
+    @IBInspectable public var effectTitleColor: Bool = false {
         didSet {
             refreshBorder()
         }
@@ -41,7 +41,7 @@ public class LineButton: DesignableButton {
         initialValues()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialValues()
     }
@@ -55,16 +55,21 @@ public class LineButton: DesignableButton {
     }
     
     private func initialValues() {
-        cornerRadius = 5.0
+        cornerRadius = CNManager.shared.style.cornerRadius
         refreshBorder()
     }
     
     private func refreshBorder() {
-        let colors: [UIColor]
-        if startColor != endColor {
-            colors = [startColor, endColor]
-        } else {
-            colors = [startColor]
+        var colors: [UIColor] = []
+        if let color = startColor {
+            colors.append(color)
+        }
+        if let color = endColor {
+            colors.append(color)
+        }
+        if colors.isEmpty {
+            let style = CNManager.shared.style
+            colors = [style.gradientStartColor, style.gradientEndColor]
         }
         corners.radius = cornerRadius
         border.colors = colors

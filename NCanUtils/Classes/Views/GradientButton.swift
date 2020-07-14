@@ -10,15 +10,15 @@
 import UIKit
 
 @IBDesignable
-public class GradientButton: DesignableButton {
+open class GradientButton: DesignableButton {
 
-    @IBInspectable var startColor: UIColor = .black {
+    @IBInspectable public var startColor: UIColor? = nil {
         didSet {
             refreshBackground()
         }
     }
     
-    @IBInspectable var endColor: UIColor = .black {
+    @IBInspectable public var endColor: UIColor? = nil {
         didSet {
             refreshBackground()
         }
@@ -36,16 +36,21 @@ public class GradientButton: DesignableButton {
     
     private func initialValues() {
         setTitleColor(.white, for: .normal)
-        cornerRadius = 5.0
+        cornerRadius = CNManager.shared.style.cornerRadius
         refreshBackground()
     }
     
     private func refreshBackground() {
-        let colors: [UIColor]
-        if startColor != endColor {
-            colors = [startColor, endColor]
-        } else {
-            colors = [startColor]
+        var colors: [UIColor] = []
+        if let color = startColor {
+            colors.append(color)
+        }
+        if let color = endColor {
+            colors.append(color)
+        }
+        if colors.isEmpty {
+            let style = CNManager.shared.style
+            colors = [style.gradientStartColor, style.gradientEndColor]
         }
         corners.radius = cornerRadius
         background.colors = colors

@@ -9,7 +9,7 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-public class DesignableView: UIView {
+open class DesignableView: UIView {
     
     private struct AssociatedKeys {
         static var border: String = "NCanUtils+DesignableView:border"
@@ -17,7 +17,7 @@ public class DesignableView: UIView {
         static var background: String = "NCanUtils+DesignableView:background"
     }
     
-    var border: BorderStyle {
+    public var border: BorderStyle {
         get {
             if let result = objc_getAssociatedObject(self, &AssociatedKeys.border) as? BorderStyle {
                 return result
@@ -36,7 +36,7 @@ public class DesignableView: UIView {
         }
     }
     
-    var corners: CornerStyle {
+    public var corners: CornerStyle {
         get {
             if let result = objc_getAssociatedObject(self, &AssociatedKeys.corners) as? CornerStyle {
                 return result

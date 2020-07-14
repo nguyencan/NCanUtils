@@ -148,23 +148,13 @@ public extension UIView {
     /// - Parameters:
     ///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
     ///   - radius: radius for selected corners.
-    func addRoundCorners(_ corners: UIRectCorner = .allCorners, radius: CGFloat = 5) {
+    func addRoundCorners(
+        _ corners: UIRectCorner = .allCorners,
+        radius: CGFloat = CNManager.shared.style.cornerRadius)
+    {
         layer.cornerRadius = radius
         if #available(iOS 11.0, *) {
-            var mask: CACornerMask = []
-            if corners.contains(.topLeft) {
-                mask.insert(.layerMinXMinYCorner)
-            }
-            if corners.contains(.topRight) {
-                mask.insert(.layerMaxXMinYCorner)
-            }
-            if corners.contains(.bottomLeft) {
-                mask.insert(.layerMinXMaxYCorner)
-            }
-            if corners.contains(.bottomRight) {
-                mask.insert(.layerMaxXMaxYCorner)
-            }
-            layer.maskedCorners = mask
+            layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
         } else {
             // Fallback on earlier versions
             let maskPath = UIBezierPath(
@@ -195,7 +185,10 @@ public extension UIView {
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil)
-    func fadeIn(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    func fadeIn(
+        duration: TimeInterval = 1,
+        completion: ((Bool) -> Void)? = nil)
+    {
         if isHidden {
             isHidden = false
         }
@@ -209,7 +202,10 @@ public extension UIView {
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil)
-    func fadeOut(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    func fadeOut(
+        duration: TimeInterval = 1,
+        completion: ((Bool) -> Void)? = nil)
+    {
         if isHidden {
             isHidden = false
         }
@@ -284,8 +280,8 @@ public extension UIView {
     func addBorder(
         colors: [UIColor],
         direction: Direction = .vertical,
-        width: CGFloat = 1,
-        radius: CGFloat = 5,
+        width: CGFloat = CNManager.shared.style.borderWidth,
+        radius: CGFloat = CNManager.shared.style.cornerRadius,
         corners: UIRectCorner = .allCorners)
     {
         if checkAddBorder(colors: colors, direction: direction, width: width, length: 0, space: 0, radius: radius, corners: corners) {
@@ -301,8 +297,8 @@ public extension UIView {
     
     func addBorder(
         color: UIColor,
-        width: CGFloat = 1,
-        radius: CGFloat = 5,
+        width: CGFloat = CNManager.shared.style.borderWidth,
+        radius: CGFloat = CNManager.shared.style.cornerRadius,
         corners: UIRectCorner = .allCorners)
     {
         if checkAddBorder(colors: [color], width: width, length: 0, space: 0, radius: radius, corners: corners) {
@@ -317,10 +313,10 @@ public extension UIView {
     func addBorderByDashed(
         colors: [UIColor],
         direction: Direction = .vertical,
-        width: CGFloat = 1,
-        length: CGFloat = 4,
-        space: CGFloat = 2,
-        radius: CGFloat = 5,
+        width: CGFloat = CNManager.shared.style.borderWidth,
+        length: CGFloat = CNManager.shared.style.borderLength,
+        space: CGFloat = CNManager.shared.style.borderSpace,
+        radius: CGFloat = CNManager.shared.style.cornerRadius,
         corners: UIRectCorner = .allCorners)
     {
         if checkAddBorder(colors: colors, direction: direction, width: width, length: length, space: space, radius: radius, corners: corners) {
@@ -337,10 +333,10 @@ public extension UIView {
     
     func addBorderByDashed(
         color: UIColor,
-        width: CGFloat = 1,
-        length: CGFloat = 4,
-        space: CGFloat = 2,
-        radius: CGFloat = 5,
+        width: CGFloat = CNManager.shared.style.borderWidth,
+        length: CGFloat = CNManager.shared.style.borderLength,
+        space: CGFloat = CNManager.shared.style.borderSpace,
+        radius: CGFloat = CNManager.shared.style.cornerRadius,
         corners: UIRectCorner = .allCorners)
     {
         if checkAddBorder(colors: [color], width: width, length: length, space: space, radius: radius, corners: corners) {
@@ -380,7 +376,7 @@ public extension UIView {
         _ side: Side,
         colors: [UIColor],
         direction: Direction = .vertical,
-        width: CGFloat = 1)
+        width: CGFloat = CNManager.shared.style.borderWidth)
     {
         if let color = generateLinearGradientColor(colors: colors, direction: direction, rect: bounds) {
             addBorderBySide(side, color: color, width: width)
@@ -390,7 +386,7 @@ public extension UIView {
     func addBorderBySide(
         _ side: Side,
         color: UIColor,
-        width: CGFloat = 1)
+        width: CGFloat = CNManager.shared.style.borderWidth)
     {
         // Remove old border layer
         removeLayer(name: UIView.borderLayerName)
@@ -459,7 +455,7 @@ public extension UIView {
     func addGradientBackground(
         colors: [UIColor] = [],
         direction: Direction = .vertical,
-        radius: CGFloat = 5,
+        radius: CGFloat = CNManager.shared.style.cornerRadius,
         corners: UIRectCorner = .allCorners)
     {
         if checkAddBackground(colors: colors, direction: direction, radius: radius, corners: corners) {
@@ -520,15 +516,15 @@ public extension UIView {
     /// NCanUtils: Add shadow to view.
     ///
     /// - Parameters:
-    ///   - color: shadow color (default is UIColor.lightGray)
-    ///   - radius: shadow radius (default is 3)
-    ///   - offset: shadow offset (default is .zero)
-    ///   - opacity: shadow opacity (default is 0.5)
+    ///   - color: shadow color
+    ///   - radius: shadow radius
+    ///   - offset: shadow offset
+    ///   - opacity: shadow opacity
     func addShadow(
-        color: UIColor = UIColor.lightGray,
-        radius: CGFloat = 3,
-        offset: CGSize = .zero,
-        opacity: Float = 0.5)
+        color: UIColor = CNManager.shared.style.shadowColor,
+        radius: CGFloat = CNManager.shared.style.shadowBlur/2,
+        offset: CGSize = CNManager.shared.style.shadowOffset,
+        opacity: Float = CNManager.shared.style.shadowAlpha)
     {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
@@ -539,12 +535,12 @@ public extension UIView {
     }
     
     func addSketchShadow(
-        color: UIColor,
-        alpha: Float = 1,
-        x: CGFloat = 0,
-        y: CGFloat = 4,
-        blur: CGFloat = 16,
-        spread: CGFloat = 0)
+        color: UIColor = CNManager.shared.style.shadowColor,
+        alpha: Float = CNManager.shared.style.shadowAlpha,
+        x: CGFloat = CNManager.shared.style.shadowOffset.width,
+        y: CGFloat = CNManager.shared.style.shadowOffset.height,
+        blur: CGFloat = CNManager.shared.style.shadowBlur,
+        spread: CGFloat = CNManager.shared.style.shadowSpread)
     {
         layer.shadowColor = color.cgColor
         layer.shadowOpacity = alpha
@@ -560,11 +556,12 @@ extension UIView {
     
     func drawBackgroundIfNeeds(
         colors: [UIColor],
+        locations: UnsafePointer<CGFloat>? = nil,
         direction: Direction = .vertical,
         radius: CGFloat = 0,
         corners: UIRectCorner = .allCorners)
     {
-        if let color = generateLinearGradientColor(colors: colors, direction: direction, rect: bounds) {
+        if let color = generateLinearGradientColor(colors: colors, locations: locations, direction: direction, rect: bounds) {
             guard let context = UIGraphicsGetCurrentContext() else {
                 return
             }
@@ -686,6 +683,7 @@ extension UIView {
     
     func generateLinearGradientColor(
         colors: [UIColor],
+        locations: UnsafePointer<CGFloat>? = nil,
         direction: Direction,
         rect: CGRect) -> UIColor?
     {
@@ -704,7 +702,7 @@ extension UIView {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
                                         colors: resultColors as CFArray,
-                                        locations: nil) else { return nil }
+                                        locations: locations) else { return nil }
         
         let point: CGPoint
         if direction == .vertical {
@@ -717,6 +715,38 @@ extension UIView {
                                     start: .zero,
                                     end: point,
                                     options: [])
+        
+        let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        guard let image = gradientImage else { return nil }
+        
+        return UIColor(patternImage: image)
+    }
+    
+    func generateRadialGradientColor(in rect: CGRect, colors: [UIColor]) -> UIColor? {
+        if colors.count < 2 {
+            return colors.first
+        }
+        if let currentContext = UIGraphicsGetCurrentContext() {
+            currentContext.saveGState()
+            do { currentContext.restoreGState() }
+        }
+        
+        let resultColors: [CGColor] = colors.map { (color) -> CGColor in
+            return color.cgColor
+        }
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
+        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB()
+            , colors: resultColors as CFArray
+            , locations: [0.0, 1.0]) else { return nil }
+        
+        let context = UIGraphicsGetCurrentContext()
+        context?.drawRadialGradient(gradient
+            , startCenter: CGPoint(x: rect.midX, y: rect.midY)
+            , startRadius: 0
+            , endCenter: CGPoint(x: rect.midX, y: rect.midY)
+            , endRadius: min(rect.width, rect.height)
+            , options: [])
         
         let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

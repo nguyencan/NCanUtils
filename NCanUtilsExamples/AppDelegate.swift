@@ -17,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         LanguageUtility.configureAppLanguage()
         
+        CNManager.shared.style.shadowColor = .blue
+        
+        CNManager.shared.style.gradientStartColor = .red
+        CNManager.shared.style.gradientEndColor = .purple
+        
+        CNManager.shared.style.progressStartColor = .red
+        CNManager.shared.style.progressEndColor = .purple
+        CNManager.shared.style.progressBgStartColor = .clear
+        CNManager.shared.style.progressBgEndColor = .clear
+        
+        CNManager.shared.style.rippleEffect = true
+        CNManager.shared.style.rippleColor = .green
+        
         return true
     }
 

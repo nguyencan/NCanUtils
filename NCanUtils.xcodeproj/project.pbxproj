@@ -16,6 +16,8 @@
 		40235D8024BC11A700B29346 /* Shadow_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40235D7F24BC11A700B29346 /* Shadow_Extension.swift */; };
 		40249D6024573B4D00EF8B5E /* UserDefaults_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40249D5F24573B4D00EF8B5E /* UserDefaults_Extension.swift */; };
 		40249D6224573F3100EF8B5E /* Dictionary_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40249D6124573F3100EF8B5E /* Dictionary_Extension.swift */; };
+		404D1B4524BD500900BAC2D7 /* CNManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D1B4424BD500900BAC2D7 /* CNManager.swift */; };
+		404D1B4724BD860700BAC2D7 /* DesignableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D1B4624BD860700BAC2D7 /* DesignableControl.swift */; };
 		406ADC1324559D0500D73051 /* NCanUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 406ADC1124559D0500D73051 /* NCanUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		406ADC342455BBE200D73051 /* KeyboardEventUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406ADC332455BBE200D73051 /* KeyboardEventUtility.swift */; };
 		406ADC362455BFC500D73051 /* CustomXibViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406ADC352455BFC500D73051 /* CustomXibViewUtility.swift */; };
@@ -29,6 +31,9 @@
 		406ADC652455E07900D73051 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406ADC642455E07900D73051 /* Assets.xcassets */; };
 		406ADC682455E07900D73051 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406ADC662455E07900D73051 /* LaunchScreen.storyboard */; };
 		40926747247F6E670058E86A /* Int_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40926746247F6E670058E86A /* Int_Extension.swift */; };
+		40AF0EE624BC36CE008240B8 /* CNProgressPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF0EE524BC36CE008240B8 /* CNProgressPointsView.swift */; };
+		40AF0EE824BC3B0F008240B8 /* CNProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF0EE724BC3B0F008240B8 /* CNProgressCircleView.swift */; };
+		40AF0EEB24BC5CE2008240B8 /* CNProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF0EEA24BC5CE2008240B8 /* CNProgressView.swift */; };
 		40B17364245A9BC300F6BDC8 /* UIStackView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B17363245A9BC300F6BDC8 /* UIStackView_Extension.swift */; };
 		40B17366245A9C3F00F6BDC8 /* UISwitch_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B17365245A9C3F00F6BDC8 /* UISwitch_Extension.swift */; };
 		40B20AC324B6D9B000F5388A /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B20AC224B6D9B000F5388A /* DesignableView.swift */; };
@@ -75,6 +80,8 @@
 		40235D7F24BC11A700B29346 /* Shadow_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow_Extension.swift; sourceTree = "<group>"; };
 		40249D5F24573B4D00EF8B5E /* UserDefaults_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults_Extension.swift; sourceTree = "<group>"; };
 		40249D6124573F3100EF8B5E /* Dictionary_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary_Extension.swift; sourceTree = "<group>"; };
+		404D1B4424BD500900BAC2D7 /* CNManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNManager.swift; sourceTree = "<group>"; };
+		404D1B4624BD860700BAC2D7 /* DesignableControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableControl.swift; sourceTree = "<group>"; };
 		406ADC0E24559D0500D73051 /* NCanUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NCanUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		406ADC1124559D0500D73051 /* NCanUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCanUtils.h; sourceTree = "<group>"; };
 		406ADC1224559D0500D73051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +99,9 @@
 		406ADC672455E07900D73051 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		406ADC692455E07900D73051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40926746247F6E670058E86A /* Int_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int_Extension.swift; sourceTree = "<group>"; };
+		40AF0EE524BC36CE008240B8 /* CNProgressPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNProgressPointsView.swift; sourceTree = "<group>"; };
+		40AF0EE724BC3B0F008240B8 /* CNProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNProgressCircleView.swift; sourceTree = "<group>"; };
+		40AF0EEA24BC5CE2008240B8 /* CNProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNProgressView.swift; sourceTree = "<group>"; };
 		40B17363245A9BC300F6BDC8 /* UIStackView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView_Extension.swift; sourceTree = "<group>"; };
 		40B17365245A9C3F00F6BDC8 /* UISwitch_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISwitch_Extension.swift; sourceTree = "<group>"; };
 		40B20AC224B6D9B000F5388A /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
@@ -273,10 +283,15 @@
 		40D51A5624581C5300BD856D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				404D1B4424BD500900BAC2D7 /* CNManager.swift */,
 				40D51A5724581C6C00BD856D /* CNLeftSideTitleView.swift */,
 				40DD0793245963DD00C303D7 /* CNImageViewer.swift */,
+				40AF0EEA24BC5CE2008240B8 /* CNProgressView.swift */,
+				40AF0EE524BC36CE008240B8 /* CNProgressPointsView.swift */,
+				40AF0EE724BC3B0F008240B8 /* CNProgressCircleView.swift */,
 				40B20AC224B6D9B000F5388A /* DesignableView.swift */,
 				40DA9A4124B5B815002BD3CD /* DesignableButton.swift */,
+				404D1B4624BD860700BAC2D7 /* DesignableControl.swift */,
 				40B20AC624B6FD7700F5388A /* DesignableLabel.swift */,
 				40DA9A4324B5BA1D002BD3CD /* LineButton.swift */,
 				40DA9A4524B5CA94002BD3CD /* GradientButton.swift */,
@@ -400,6 +415,7 @@
 				40DD077C24592FF400C303D7 /* Sequence_Extension.swift in Sources */,
 				40D51A442457534F00BD856D /* Date_Extension.swift in Sources */,
 				40DD078E2459576D00C303D7 /* Float_Extension.swift in Sources */,
+				40AF0EE624BC36CE008240B8 /* CNProgressPointsView.swift in Sources */,
 				40DA9A4224B5B815002BD3CD /* DesignableButton.swift in Sources */,
 				40D51A5A245820D600BD856D /* UIButton_Extension.swift in Sources */,
 				406ADC362455BFC500D73051 /* CustomXibViewUtility.swift in Sources */,
@@ -417,7 +433,9 @@
 				40249D6024573B4D00EF8B5E /* UserDefaults_Extension.swift in Sources */,
 				40D51A482457CDE800BD856D /* EdgeInsets_Extension.swift in Sources */,
 				40DD0794245963DD00C303D7 /* CNImageViewer.swift in Sources */,
+				404D1B4724BD860700BAC2D7 /* DesignableControl.swift in Sources */,
 				40D51A4C2457D62800BD856D /* UILabel_Extension.swift in Sources */,
+				40AF0EEB24BC5CE2008240B8 /* CNProgressView.swift in Sources */,
 				40B17366245A9C3F00F6BDC8 /* UISwitch_Extension.swift in Sources */,
 				40DD077F2459322700C303D7 /* UITextView+HTMLString.swift in Sources */,
 				40DD07922459633D00C303D7 /* UIView_Extension.swift in Sources */,
@@ -428,6 +446,7 @@
 				40B20AC324B6D9B000F5388A /* DesignableView.swift in Sources */,
 				40DA9A4424B5BA1D002BD3CD /* LineButton.swift in Sources */,
 				40D51A5824581C6C00BD856D /* CNLeftSideTitleView.swift in Sources */,
+				404D1B4524BD500900BAC2D7 /* CNManager.swift in Sources */,
 				40DD07882459501200C303D7 /* LanguageUtility.swift in Sources */,
 				40D51A4A2457D31F00BD856D /* UISearchBar_Extension.swift in Sources */,
 				40D51A4224574B1F00BD856D /* URL_Extension.swift in Sources */,
@@ -435,6 +454,7 @@
 				406ADC3C2455D15300D73051 /* Font_Extension.swift in Sources */,
 				40DD078624594EA700C303D7 /* ListUtility.swift in Sources */,
 				4004CEEA2458601C00E82F10 /* CGSize_Extension.swift in Sources */,
+				40AF0EE824BC3B0F008240B8 /* CNProgressCircleView.swift in Sources */,
 				4004CEEC2458608600E82F10 /* CGPoint_Extension.swift in Sources */,
 				40D51A4F2457D8DB00BD856D /* AppRouteUtility.swift in Sources */,
 				4004CEE8245849D300E82F10 /* CGRect_Extension.swift in Sources */,

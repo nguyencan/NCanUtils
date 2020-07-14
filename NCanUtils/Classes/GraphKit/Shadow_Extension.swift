@@ -2,7 +2,7 @@
 //  Shadow_Extension.swift
 //  NCanUtils
 //
-//  Created by SG on 7/13/20.
+//  Created by Nguyen Can on 7/13/20.
 //  Copyright © 2020 Nguyen Can. All rights reserved.
 //
 

@@ -9,7 +9,7 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-public class DesignableLabel: UILabel {
+open class DesignableLabel: UILabel {
     
     private struct AssociatedKeys {
         static var border: String = "NCanUtils+DesignableLabel:border"
