@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         LanguageUtility.configureAppLanguage()
         
-        CNManager.shared.style.shadowColor = .blue
+        CNManager.shared.style.shadowColor = .darkGray
         
         CNManager.shared.style.gradientStartColor = .red
         CNManager.shared.style.gradientEndColor = .purple

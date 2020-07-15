@@ -12,9 +12,14 @@ import UIKit
 open class DesignableControl: UIControl {
     
     private struct AssociatedKeys {
-        static var rippleEffect: String = "NCanUtils+UIButton:rippleEffect"
-        static var rippleOutBounds: String = "NCanUtils+UIButton:rippleOutBounds"
-        static var rippleColor: String = "NCanUtils+UIButton:rippleColor"
+        static var border: String = "NCanUtils+DesignableControl:border"
+        static var corners: String = "NCanUtils+DesignableControl:corners"
+        static var background: String = "NCanUtils+DesignableControl:background"
+        static var shadowSpread: String = "NCanUtils+DesignableControl:shadowSpread"
+        
+        static var rippleEffect: String = "NCanUtils+DesignableControl:rippleEffect"
+        static var rippleOutBounds: String = "NCanUtils+DesignableControl:rippleOutBounds"
+        static var rippleColor: String = "NCanUtils+DesignableControl:rippleColor"
     }
     
     public var rippleEffect: Bool {
@@ -44,13 +49,77 @@ open class DesignableControl: UIControl {
         }
     }
     
-    open var highlightedTags: [Int] {
+    public var border: BorderStyle {
         get {
-            return []
+            if let result = objc_getAssociatedObject(self, &AssociatedKeys.border) as? BorderStyle {
+                return result
+            } else {
+                var result = BorderStyle()
+                if let color = layer.borderColor, color != UIColor.clear.cgColor {
+                    result.colors = [UIColor(cgColor: color)]
+                }
+                result.width = layer.borderWidth
+                return result
+            }
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.border, newValue as BorderStyle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            setNeedsLayout()
         }
     }
     
+    public var corners: CornerStyle {
+        get {
+            if let result = objc_getAssociatedObject(self, &AssociatedKeys.corners) as? CornerStyle {
+                return result
+            } else {
+                return CornerStyle(radius: layer.cornerRadius)
+            }
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.corners, newValue as CornerStyle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            setNeedsLayout()
+        }
+    }
+    
+    public var background: BackgroundStyle {
+        get {
+            if let result = (objc_getAssociatedObject(self, &AssociatedKeys.background) as? BackgroundStyle) {
+                return result
+            } else if let color = backgroundColor {
+                return BackgroundStyle(colors: [color])
+            } else {
+                return BackgroundStyle()
+            }
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.background, newValue as BackgroundStyle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            if !newValue.colors.isEmpty {
+                backgroundColor = .clear
+            }
+            setNeedsLayout()
+        }
+    }
+    
+    public override var backgroundColor: UIColor? {
+        didSet {
+            if let color = backgroundColor, color != .clear {
+                background = BackgroundStyle(colors: [color])
+            }
+        }
+    }
+
     private var isTouching: Bool = false
+    
+    public override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        // Draw round corners
+        addRoundCorners(corners.corners, radius: corners.radius)
+        // Draw background if needs
+        drawBackgroundIfNeeds(colors: background.colors, direction: background.direction, radius: corners.radius, corners: corners.corners)
+        // Draw border if needs
+        drawBorderIfNeeds(colors: border.colors, lineWidth: border.width, dashLength: border.length, dashSpace: border.space, radius: corners.radius, corners: corners.corners)
+    }
 }
 
 // MARK: - Highlight Effect
@@ -90,19 +159,8 @@ extension DesignableControl {
         showHighlight(false)
     }
     
-    private func showHighlight(_ isHighlighted: Bool) {
+    public func showHighlight(_ isHighlighted: Bool) {
         isTouching = isHighlighted
-        DispatchQueue.main.async {
-            if isHighlighted && self.isEnabled {
-                for tag in self.highlightedTags {
-                    self.viewWithTag(tag)?.alpha = CNManager.shared.style.highlightedAlpha
-                }
-            } else {
-                for tag in self.highlightedTags {
-                    self.viewWithTag(tag)?.alpha = 1.0
-                }
-            }
-        }
     }
     
     override public func endTracking(_ touch: UITouch?, with event: UIEvent?) {

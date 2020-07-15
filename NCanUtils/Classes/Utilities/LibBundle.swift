@@ -30,6 +30,10 @@ struct ImagesHelper {
     static var search: UIImage {
         return imageFor(name: "ic-search")
     }
+    
+    static var arrow: UIImage {
+        return imageFor(name: "ic-arrow")
+    }
 }
 
 #endif

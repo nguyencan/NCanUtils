@@ -35,6 +35,23 @@ public class CNViewStyle {
     
     public var rippleEffect: Bool = false
     public var rippleColor: UIColor = UIColor(hex: 0x55C2C2)
+    
+    public var button = ButtonStyle()
+    
+}
+
+public class ButtonStyle {
+    
+    public var titleColor: UIColor = UIColor(hex: 0x172B4D)
+    public var titleSize: CGFloat = 16
+    
+    public var subtitleColor: UIColor = UIColor(hex: 0x8993A4)
+    public var subtitleSize: CGFloat = 12
+    
+    public var verticalPadding: CGFloat = 16
+    public var lineSpace: CGFloat = 2
+    
+    public var dividerColor: UIColor = UIColor(hex: 0xF4F5F7)
 }
 
 public class CNManager {

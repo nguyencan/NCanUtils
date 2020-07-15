@@ -155,17 +155,12 @@ public extension UIView {
         layer.cornerRadius = radius
         if #available(iOS 11.0, *) {
             layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
-        } else {
-            // Fallback on earlier versions
-            let maskPath = UIBezierPath(
-                roundedRect: bounds,
-                byRoundingCorners: corners,
-                cornerRadii: CGSize(width: radius, height: radius))
-
-            let shape = CAShapeLayer()
-            shape.path = maskPath.cgPath
-            layer.mask = shape
         }
+        let maskPath = UIBezierPath(
+            roundedRect: bounds,
+            byRoundingCorners: corners,
+            cornerRadii: CGSize(width: radius, height: radius))
+        layer.shadowPath = maskPath.cgPath
     }
     
     /// NCanUtils: Add array of subviews to view.
@@ -437,7 +432,12 @@ public extension UIView {
                view.border = BorderStyle(colors: colors, direction: direction, width: width, length: length, space: space)
                
                return true
-           }
+           } else if let view = self as? DesignableControl {
+                view.corners = CornerStyle(corners: corners, radius: radius)
+                view.border = BorderStyle(colors: colors, direction: direction, width: width, length: length, space: space)
+
+                return true
+            }
         }
         return false
     }
@@ -499,7 +499,12 @@ public extension UIView {
                view.corners = CornerStyle(corners: corners, radius: radius)
                
                return true
-           }
+           } else if let view = self as? DesignableControl {
+                view.background = BackgroundStyle(colors: colors, direction: direction)
+                view.corners = CornerStyle(corners: corners, radius: radius)
+
+                return true
+            }
         }
         return false
     }

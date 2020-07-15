@@ -35,10 +35,10 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="456"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mq-F5-sKl" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="354"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="478"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Daq-xw-RFZ">
-                                                <rect key="frame" x="16" y="20" width="288" height="318"/>
+                                                <rect key="frame" x="16" y="20" width="288" height="442"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9L-hD-qkj">
                                                         <rect key="frame" x="0.0" y="0.0" width="288" height="38"/>
@@ -205,24 +205,55 @@
                                                             <constraint firstAttribute="height" constant="44" id="tJc-qX-qnb"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pFW-gd-jz6">
-                                                        <rect key="frame" x="0.0" y="274" width="288" height="44"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sy-Lj-oL7" customClass="CNRoundedShadowView" customModule="NCanUtils">
+                                                        <rect key="frame" x="0.0" y="274" width="288" height="168"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anA-zo-27N" customClass="DesignableControl" customModule="NCanUtils">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="44"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </view>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0O-px-Xb7" customClass="GradientButton" customModule="NCanUtils">
-                                                                <rect key="frame" x="150" y="0.0" width="138" height="44"/>
-                                                                <state key="normal" title="Numberic">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pFW-gd-jz6">
+                                                                <rect key="frame" x="0.0" y="0.0" width="288" height="168"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anA-zo-27N" customClass="CNNextButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="56"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Nguyễn Cần"/>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-contact"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="subtitle" value="Job Title: Mobile Devloper"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="arrow" value="NO"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8n-s2-TSd" customClass="CNNextButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="0.0" y="56" width="288" height="56"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-settings"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Settings"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="subtitle" value="Two line button with arrow icon"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xg-RS-Kj4" customClass="CNNextButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="0.0" y="112" width="288" height="56"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Gift for you - One line with arrow icon"/>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-coupon"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="168" id="FRo-MX-vLT"/>
+                                                                </constraints>
+                                                            </stackView>
                                                         </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="44" id="FRo-MX-vLT"/>
+                                                            <constraint firstItem="pFW-gd-jz6" firstAttribute="top" secondItem="6sy-Lj-oL7" secondAttribute="top" id="XB1-kS-Dml"/>
+                                                            <constraint firstAttribute="bottom" secondItem="pFW-gd-jz6" secondAttribute="bottom" id="gXA-xo-kQl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="pFW-gd-jz6" secondAttribute="trailing" id="pJ9-tf-XSu"/>
+                                                            <constraint firstItem="pFW-gd-jz6" firstAttribute="leading" secondItem="6sy-Lj-oL7" secondAttribute="leading" id="uum-dw-t7H"/>
                                                         </constraints>
-                                                    </stackView>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -243,12 +274,20 @@
                                     <constraint firstItem="3mq-F5-sKl" firstAttribute="top" secondItem="0e4-yc-lfz" secondAttribute="top" id="t89-VO-KGX"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cco-21-En6" userLabel="Bottom View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cco-21-En6" userLabel="Bottom View" customClass="CNRoundedShadowView" customModule="NCanUtils">
                                 <rect key="frame" x="0.0" y="500" width="320" height="68"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="M4O-Xi-Y9V"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="-4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -268,7 +307,6 @@
                     <navigationItem key="navigationItem" id="q9d-QV-GUA"/>
                     <connections>
                         <outlet property="mBottomBar" destination="cco-21-En6" id="YiH-fg-p4b"/>
-                        <outlet property="mControlView" destination="anA-zo-27N" id="NFG-CP-79G"/>
                         <outlet property="mInputView" destination="REg-dc-99z" id="cnn-EQ-29e"/>
                         <outlet property="mResultLabel" destination="zXq-yN-4jV" id="3NR-bJ-5z5"/>
                         <outlet property="mScrollView" destination="0e4-yc-lfz" id="1kU-Xm-iP0"/>
@@ -328,6 +366,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic-contact" width="24" height="22"/>
+        <image name="ic-coupon" width="24" height="24"/>
+        <image name="ic-settings" width="24" height="24"/>
         <image name="img_1" width="1280" height="960"/>
     </resources>
 </document>

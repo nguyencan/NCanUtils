@@ -18,6 +18,8 @@
 		40249D6224573F3100EF8B5E /* Dictionary_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40249D6124573F3100EF8B5E /* Dictionary_Extension.swift */; };
 		404D1B4524BD500900BAC2D7 /* CNManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D1B4424BD500900BAC2D7 /* CNManager.swift */; };
 		404D1B4724BD860700BAC2D7 /* DesignableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D1B4624BD860700BAC2D7 /* DesignableControl.swift */; };
+		4054133B24BEA19600E6462F /* CNNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054133A24BEA19500E6462F /* CNNextButton.swift */; };
+		4054133E24BEE56800E6462F /* CNRoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054133D24BEE56800E6462F /* CNRoundedShadowView.swift */; };
 		406ADC1324559D0500D73051 /* NCanUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 406ADC1124559D0500D73051 /* NCanUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		406ADC342455BBE200D73051 /* KeyboardEventUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406ADC332455BBE200D73051 /* KeyboardEventUtility.swift */; };
 		406ADC362455BFC500D73051 /* CustomXibViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406ADC352455BFC500D73051 /* CustomXibViewUtility.swift */; };
@@ -82,6 +84,8 @@
 		40249D6124573F3100EF8B5E /* Dictionary_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary_Extension.swift; sourceTree = "<group>"; };
 		404D1B4424BD500900BAC2D7 /* CNManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNManager.swift; sourceTree = "<group>"; };
 		404D1B4624BD860700BAC2D7 /* DesignableControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableControl.swift; sourceTree = "<group>"; };
+		4054133A24BEA19500E6462F /* CNNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNNextButton.swift; sourceTree = "<group>"; };
+		4054133D24BEE56800E6462F /* CNRoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNRoundedShadowView.swift; sourceTree = "<group>"; };
 		406ADC0E24559D0500D73051 /* NCanUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NCanUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		406ADC1124559D0500D73051 /* NCanUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCanUtils.h; sourceTree = "<group>"; };
 		406ADC1224559D0500D73051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 				40B20AC624B6FD7700F5388A /* DesignableLabel.swift */,
 				40DA9A4324B5BA1D002BD3CD /* LineButton.swift */,
 				40DA9A4524B5CA94002BD3CD /* GradientButton.swift */,
+				4054133A24BEA19500E6462F /* CNNextButton.swift */,
+				4054133D24BEE56800E6462F /* CNRoundedShadowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				40926747247F6E670058E86A /* Int_Extension.swift in Sources */,
 				4004CEE3245835AD00E82F10 /* LibBundle.swift in Sources */,
 				406ADC342455BBE200D73051 /* KeyboardEventUtility.swift in Sources */,
+				4054133E24BEE56800E6462F /* CNRoundedShadowView.swift in Sources */,
 				40249D6224573F3100EF8B5E /* Dictionary_Extension.swift in Sources */,
 				40DD0781245935DA00C303D7 /* VersionManager.swift in Sources */,
 				40249D6024573B4D00EF8B5E /* UserDefaults_Extension.swift in Sources */,
@@ -446,6 +453,7 @@
 				40B20AC324B6D9B000F5388A /* DesignableView.swift in Sources */,
 				40DA9A4424B5BA1D002BD3CD /* LineButton.swift in Sources */,
 				40D51A5824581C6C00BD856D /* CNLeftSideTitleView.swift in Sources */,
+				4054133B24BEA19600E6462F /* CNNextButton.swift in Sources */,
 				404D1B4524BD500900BAC2D7 /* CNManager.swift in Sources */,
 				40DD07882459501200C303D7 /* LanguageUtility.swift in Sources */,
 				40D51A4A2457D31F00BD856D /* UISearchBar_Extension.swift in Sources */,

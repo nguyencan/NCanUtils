@@ -14,13 +14,6 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var mScrollView: UIScrollView!
     @IBOutlet weak var mBottomBar: UIView!
     @IBOutlet weak var mInputView: UITextField!
-    @IBOutlet weak var mControlView: DesignableControl! {
-        didSet {
-            mControlView.addRoundCorners()
-            mControlView.addShadow()
-            mControlView.isEnabled = true
-        }
-    }
     @IBOutlet weak var mResultLabel: DesignableLabel! {
         didSet {
             mResultLabel.textInsets = EdgeInsets(left: 16, right: 16)
@@ -89,9 +82,11 @@ class FirstViewController: UIViewController {
 
 //        mBottomBar.addBorderBySide(.top, color: .green)
         mBottomBar.addBorderBySide(.top, colors: [start, end])
-        mBottomBar.backgroundColor = .lightGray
+//        mBottomBar.backgroundColor = .lightGray
 //        mInputView.addBorder(color: .red)
         mInputView.addBorder(colors: [start, end])
+        
+//        mControlView.addGradientBackground()
     }
     
     override func viewWillAppear(_ animated: Bool) {
