@@ -32,6 +32,7 @@
 		406ADC632455E07700D73051 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406ADC612455E07700D73051 /* Main.storyboard */; };
 		406ADC652455E07900D73051 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406ADC642455E07900D73051 /* Assets.xcassets */; };
 		406ADC682455E07900D73051 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406ADC662455E07900D73051 /* LaunchScreen.storyboard */; };
+		407B4FC624BFF1D700C04BF5 /* CNDefaultShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407B4FC524BFF1D700C04BF5 /* CNDefaultShadowView.swift */; };
 		40926747247F6E670058E86A /* Int_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40926746247F6E670058E86A /* Int_Extension.swift */; };
 		40AF0EE624BC36CE008240B8 /* CNProgressPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF0EE524BC36CE008240B8 /* CNProgressPointsView.swift */; };
 		40AF0EE824BC3B0F008240B8 /* CNProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF0EE724BC3B0F008240B8 /* CNProgressCircleView.swift */; };
@@ -102,6 +103,7 @@
 		406ADC642455E07900D73051 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		406ADC672455E07900D73051 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		406ADC692455E07900D73051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		407B4FC524BFF1D700C04BF5 /* CNDefaultShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNDefaultShadowView.swift; sourceTree = "<group>"; };
 		40926746247F6E670058E86A /* Int_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int_Extension.swift; sourceTree = "<group>"; };
 		40AF0EE524BC36CE008240B8 /* CNProgressPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNProgressPointsView.swift; sourceTree = "<group>"; };
 		40AF0EE724BC3B0F008240B8 /* CNProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNProgressCircleView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				40DA9A4524B5CA94002BD3CD /* GradientButton.swift */,
 				4054133A24BEA19500E6462F /* CNNextButton.swift */,
 				4054133D24BEE56800E6462F /* CNRoundedShadowView.swift */,
+				407B4FC524BFF1D700C04BF5 /* CNDefaultShadowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				40D51A482457CDE800BD856D /* EdgeInsets_Extension.swift in Sources */,
 				40DD0794245963DD00C303D7 /* CNImageViewer.swift in Sources */,
 				404D1B4724BD860700BAC2D7 /* DesignableControl.swift in Sources */,
+				407B4FC624BFF1D700C04BF5 /* CNDefaultShadowView.swift in Sources */,
 				40D51A4C2457D62800BD856D /* UILabel_Extension.swift in Sources */,
 				40AF0EEB24BC5CE2008240B8 /* CNProgressView.swift in Sources */,
 				40B17366245A9C3F00F6BDC8 /* UISwitch_Extension.swift in Sources */,
@@ -566,6 +570,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -622,6 +627,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

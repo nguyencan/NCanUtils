@@ -16,6 +16,7 @@ open class DesignableLabel: UILabel {
         static var corners: String = "NCanUtils+DesignableLabel:corners"
         static var background: String = "NCanUtils+DesignableLabel:background"
         static var textInsets: String = "NCanUtils+DesignableLabel:textInsets"
+        static var textColors: String = "NCanUtils+DesignableLabel:textColors"
     }
     
     public var border: BorderStyle {
@@ -51,18 +52,18 @@ open class DesignableLabel: UILabel {
         }
     }
     
-    public var background: BackgroundStyle {
+    public var background: GradientStyle {
         get {
-            if let result = (objc_getAssociatedObject(self, &AssociatedKeys.background) as? BackgroundStyle) {
+            if let result = (objc_getAssociatedObject(self, &AssociatedKeys.background) as? GradientStyle) {
                 return result
             } else if let color = backgroundColor {
-                return BackgroundStyle(colors: [color])
+                return GradientStyle(colors: [color])
             } else {
-                return BackgroundStyle()
+                return GradientStyle()
             }
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.background, newValue as BackgroundStyle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &AssociatedKeys.background, newValue as GradientStyle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
             if !newValue.colors.isEmpty {
                 backgroundColor = .clear
             }
@@ -81,26 +82,58 @@ open class DesignableLabel: UILabel {
         }
     }
     
+    public var textColors: GradientStyle {
+        get {
+            if let result = (objc_getAssociatedObject(self, &AssociatedKeys.textColors) as? GradientStyle) {
+                return result
+            } else if let color = textColor {
+                return GradientStyle(colors: [color])
+            } else {
+                return GradientStyle()
+            }
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.textColors, newValue as GradientStyle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            setNeedsLayout()
+        }
+    }
+    
     public override var backgroundColor: UIColor? {
         didSet {
             if let color = backgroundColor, color != .clear {
-                background = BackgroundStyle(colors: [color])
+                background.colors = [color]
             }
         }
     }
     
     override public var intrinsicContentSize: CGSize {
         var contentSize = super.intrinsicContentSize
-        if let insets = textInsets, insets != .zero {
-            contentSize.width += insets.left + insets.right
-            contentSize.height += insets.top + insets.bottom
+        guard let text = self.text, let textInsets = textInsets else {
+            return contentSize
+        }
+        let insetsHeight: CGFloat = textInsets.top + textInsets.bottom
+        let insetsWidth: CGFloat = textInsets.left + textInsets.right
+        if let font = self.font {
+            let textWidth: CGFloat = frame.size.width - insetsWidth
+
+            let newSize = text.boundingRect(
+                with: CGSize(width: textWidth, height: .greatestFiniteMagnitude),
+                options: .usesLineFragmentOrigin,
+                attributes: [.font: font],
+                context: nil)
+
+            contentSize.height = ceil(newSize.size.height) + insetsHeight
+            contentSize.width = ceil(newSize.size.width) + insetsWidth
+        } else {
+            contentSize.width += insetsWidth
+            contentSize.height += insetsHeight
         }
         return contentSize
     }
     
     override public func sizeThatFits(_ size: CGSize) -> CGSize {
         var adjSize = super.sizeThatFits(size)
-        if let insets = textInsets, insets != .zero {
+        if let insets = textInsets {
             adjSize.width += insets.left + insets.right
             adjSize.height += insets.top + insets.bottom
         }
@@ -111,20 +144,40 @@ open class DesignableLabel: UILabel {
         // Draw round corners
         addRoundCorners(corners.corners, radius: corners.radius)
         // Draw background if needs
-        drawBackgroundIfNeeds(colors: background.colors, direction: background.direction, radius: corners.radius, corners: corners.corners)
+        drawBackgroundIfNeeds(style: background, rounded: corners)
         // Draw border if needs
-        drawBorderIfNeeds(colors: border.colors, lineWidth: border.width, dashLength: border.length, dashSpace: border.space, radius: corners.radius, corners: corners.corners)
+        drawBorderIfNeeds(style: border, rounded: corners)
         
         super.draw(rect)
     }
     
     public override func drawText(in rect: CGRect) {
-        // Redraw text with insets
-        if let insets = textInsets, insets != .zero {
-            super.drawText(in: rect.inset(by: insets))
+        let textRect = getTextRect(in: rect)
+        // Prepare gradient text color
+        let colorRect: CGRect
+        if let insets = textInsets {
+            colorRect = CGRect(
+                x: textRect.origin.x,
+                y: textRect.origin.y,
+                width: textRect.size.width + insets.right,
+                height: textRect.size.height
+            )
         } else {
-            super.drawText(in: rect)
+            colorRect = textRect
         }
+        if let color = generateLinearGradientColor(colors: textColors.colors, direction: textColors.direction, rect: colorRect) {
+            self.textColor = color
+        }
+        // Redraw text with insets
+        super.drawText(in: textRect)
+    }
+    
+    private func getTextRect(in rect: CGRect) -> CGRect {
+        var result: CGRect = rect
+        if let insets = textInsets {
+            result = rect.inset(by: insets)
+        }
+        return result
     }
 }
 

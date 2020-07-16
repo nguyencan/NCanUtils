@@ -19,7 +19,7 @@ public extension UIButton {
     
     var rippleEffect: Bool {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.rippleEffect) as? Bool ?? CNManager.shared.style.rippleEffect
+            return objc_getAssociatedObject(self, &AssociatedKeys.rippleEffect) as? Bool ?? CNManager.shared.style.button.rippleEffect
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.rippleEffect, newValue as Bool, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
@@ -37,7 +37,7 @@ public extension UIButton {
     
     var rippleColor: UIColor {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.rippleColor) as? UIColor ?? CNManager.shared.style.rippleColor
+            return objc_getAssociatedObject(self, &AssociatedKeys.rippleColor) as? UIColor ?? CNManager.shared.style.button.rippleColor
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.rippleColor, newValue as UIColor, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)

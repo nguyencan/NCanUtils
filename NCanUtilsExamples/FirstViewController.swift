@@ -12,15 +12,29 @@ import NCanUtils
 class FirstViewController: UIViewController {
 
     @IBOutlet weak var mScrollView: UIScrollView!
-    @IBOutlet weak var mBottomBar: UIView!
+    @IBOutlet weak var mTopBar: CNDefaultShadowView!
+    @IBOutlet weak var mBottomBar: CNDefaultShadowView! {
+        didSet {
+//            mBottomBar.addBorderBySide(.top, color: .green)
+            mBottomBar.addBorderBySide(.top, colors: [.blue, .green])
+        }
+    }
+    @IBOutlet weak var mTopLabel: DesignableLabel! {
+        didSet {
+            mTopLabel.textInsets = EdgeInsets(left: 16, right: 16)
+            mTopLabel.textColors = GradientStyle(colors: [.red, .purple])
+            mTopLabel.border = BorderStyle(colors: [.red, .purple], length: 4, space: 2)
+            mTopLabel.corners = CornerStyle(radius: 5)
+            mTopLabel.textAlignment = .center
+        }
+    }
     @IBOutlet weak var mInputView: UITextField!
     @IBOutlet weak var mResultLabel: DesignableLabel! {
         didSet {
             mResultLabel.textInsets = EdgeInsets(left: 16, right: 16)
             mResultLabel.border = BorderStyle(colors: [.red], length: 4, space: 2)
             mResultLabel.corners = CornerStyle(corners: [.topLeft, .bottomRight], radius: 15)
-            mResultLabel.background = BackgroundStyle(colors: [UIColor.blue.alpha(0.5), UIColor.blue.alpha(0.1)])
-            
+            mResultLabel.background = GradientStyle(colors: [UIColor.blue.alpha(0.5), UIColor.blue.alpha(0.1)])
             mResultLabel.textColor = .white
         }
     }
@@ -59,7 +73,7 @@ class FirstViewController: UIViewController {
         let result = "\(text.isNumberic)".uppercased()
         mResultLabel?.text = "Numberic: \(result)"
         
-        ProgressView.show(style: .point)
+        ProgressView.show(style: .point, startColor: .red, endColor: .white, background: [.clear])
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             ProgressView.dismiss()
         }
@@ -77,16 +91,7 @@ class FirstViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let start = UIColor(hex: 0x43E695)
-        let end = UIColor(hex: 0x3BB2B8)
-
-//        mBottomBar.addBorderBySide(.top, color: .green)
-        mBottomBar.addBorderBySide(.top, colors: [start, end])
-//        mBottomBar.backgroundColor = .lightGray
-//        mInputView.addBorder(color: .red)
-        mInputView.addBorder(colors: [start, end])
-        
-//        mControlView.addGradientBackground()
+        mInputView.addBorder(colors: [.blue, .green])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,8 +112,6 @@ class FirstViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-//        mInputView.addDashedLineBorder(color: .blue)
         
         NSLog("FirstViewController")
         NSLog("---> Is base root view: \(UIApplication.isBaseOnMainView(withClass: FirstViewController.self))")

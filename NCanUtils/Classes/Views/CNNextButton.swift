@@ -48,13 +48,13 @@ open class CNNextButton: DesignableControl {
         }
     }
     
-    @IBInspectable public var verticalPadding: CGFloat = CNManager.shared.style.button.verticalPadding {
+    @IBInspectable public var lineSpace: CGFloat = CNManager.shared.style.button.lineSpace {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    @IBInspectable public var lineSpace: CGFloat = CNManager.shared.style.button.lineSpace {
+    @IBInspectable public var horizontalSpace: CGFloat = CNManager.shared.style.button.horizontalSpace {
         didSet {
             setNeedsDisplay()
         }
@@ -106,12 +106,12 @@ open class CNNextButton: DesignableControl {
         
         let alpha: CGFloat
         if isHighlighted && isEnabled {
-            alpha = CNManager.shared.style.highlightedAlpha
+            alpha = CNManager.shared.style.button.highlightedAlpha
         } else {
             alpha = 1
         }
-        var maxX: CGFloat = rect.width - verticalPadding
-        var minX: CGFloat = verticalPadding
+        var maxX: CGFloat = rect.width - horizontalSpace
+        var minX: CGFloat = horizontalSpace
         
         // Draw arrow icon
         if arrow {
@@ -128,7 +128,7 @@ open class CNNextButton: DesignableControl {
             let y: CGFloat = (rect.height - image.size.height)/2
             
             image.draw(at: CGPoint(x: x, y: y), blendMode: .normal, alpha: alpha)
-            minX = x + image.size.width + verticalPadding
+            minX = x + image.size.width + horizontalSpace
         }
         
         // Draw titles

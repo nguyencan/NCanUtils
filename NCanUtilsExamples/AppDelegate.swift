@@ -22,13 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CNManager.shared.style.gradientStartColor = .red
         CNManager.shared.style.gradientEndColor = .purple
         
-        CNManager.shared.style.progressStartColor = .red
-        CNManager.shared.style.progressEndColor = .purple
-        CNManager.shared.style.progressBgStartColor = .clear
-        CNManager.shared.style.progressBgEndColor = .clear
+        CNManager.shared.style.progress.startColor = .white
+        CNManager.shared.style.progress.endColor = .green
+        CNManager.shared.style.progress.bgStartColor = UIColor(hex: 0x0F1C32).alpha(0.72)
+        CNManager.shared.style.progress.bgEndColor = UIColor(hex: 0x05080E)
         
-        CNManager.shared.style.rippleEffect = true
-        CNManager.shared.style.rippleColor = .green
+        CNManager.shared.style.button.rippleEffect = true
+        CNManager.shared.style.button.rippleColor = .green
         
         return true
     }

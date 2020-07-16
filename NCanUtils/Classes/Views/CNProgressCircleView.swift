@@ -184,15 +184,16 @@ public class CNProgressCircleView: UIView {
         if let color = endColor {
             colors.append(color)
         }
+        let style = CNManager.shared.style.progress
         if colors.isEmpty {
-            let style = CNManager.shared.style
-            colors = [style.progressStartColor, style.progressEndColor]
+            
+            colors = [style.startColor, style.endColor]
         }
         let strokeColor: UIColor
         if let color = generateLinearGradientColor(colors: colors, direction: .vertical, rect: bounds) {
             strokeColor = color
         } else {
-            strokeColor = CNManager.shared.style.progressStartColor
+            strokeColor = style.startColor
         }
         mProgressLayer.frame = frame
         mProgressLayer.path = path

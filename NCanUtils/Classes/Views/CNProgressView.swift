@@ -25,21 +25,18 @@ public extension ProgressView {
         show(style: .point, startColor: startColor, endColor: endColor, background: background)
     }
     
-    static func show(style: ProgressView.Style = .circle, startColor: Color? = nil, endColor: UIColor? = nil, background: [UIColor] = []) {
+    static func show(style: ProgressView.Style = .circle, startColor: UIColor? = nil, endColor: UIColor? = nil, background: [UIColor] = []) {
         if let window: UIWindow = UIApplication.getWindow() {
             let view = ProgressView(frame: window.bounds)
             view.tag = ProgressView.name.hashValue
             view.style = style
             view.startColor = startColor
             view.endColor = endColor
-            if background.count == 1 {
-                var bgColor = background[0]
-                if bgColor == .clear {
-                    bgColor = bgColor.alpha(0.16)
-                }
-                view._mBackgroundView.colors = [bgColor]
-            } else {
+            if !background.isEmpty {
                 view._mBackgroundView.colors = background
+            } else {
+                let style = CNManager.shared.style.progress
+                view._mBackgroundView.colors = [style.bgStartColor, style.bgEndColor]
             }
             view.layer.zPosition = 10000
             window.addSubview(view)
@@ -103,14 +100,14 @@ public class ProgressView: UIView {
     var startColor: UIColor? = nil {
         didSet {
             _mProgressCircleBar.startColor = startColor
-            _mProgressCircleBar.startColor = startColor
+            _mProgressPointsBar.startColor = startColor
         }
     }
     
     var endColor: UIColor? = nil {
         didSet {
             _mProgressCircleBar.endColor = endColor
-            _mProgressCircleBar.endColor = endColor
+            _mProgressPointsBar.endColor = endColor
         }
     }
     
@@ -160,7 +157,11 @@ public class ProgressView: UIView {
 @IBDesignable
 class BackgroundView: UIView {
     
-    var colors: [UIColor] = []
+    var colors: [UIColor] = [] {
+        didSet {
+            drawBackground()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -172,18 +173,25 @@ class BackgroundView: UIView {
         backgroundColor = .clear
     }
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        if colors.isEmpty {
-            let style = CNManager.shared.style
-            colors = [style.progressBgStartColor, style.progressBgEndColor]
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        drawBackground()
+    }
+    
+    private func drawBackground() {
+        // Prepare background colors
+        var result: [UIColor] = []
+        for color in colors {
+            if !result.contains(color) {
+                result.append(color)
+            }
         }
-        if colors.count > 1 {
-            drawBackgroundIfNeeds(colors: colors, locations: [0, 0.8, 0.9, 1], direction: .horizontal)
-        } else if let color = colors.first {
-            backgroundColor = color
+        if result.count > 1 {
+            addGradientBackground(colors: result, direction: .horizontal, radius: 0)
         } else {
-            backgroundColor = .clear
+            removeGradientBackground()
+            backgroundColor = (result.first ?? UIColor.black).alpha(0.16)
         }
     }
 }

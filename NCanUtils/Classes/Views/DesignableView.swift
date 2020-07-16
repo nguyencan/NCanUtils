@@ -50,18 +50,18 @@ open class DesignableView: UIView {
         }
     }
     
-    public var background: BackgroundStyle {
+    public var background: GradientStyle {
         get {
-            if let result = (objc_getAssociatedObject(self, &AssociatedKeys.background) as? BackgroundStyle) {
+            if let result = (objc_getAssociatedObject(self, &AssociatedKeys.background) as? GradientStyle) {
                 return result
             } else if let color = backgroundColor {
-                return BackgroundStyle(colors: [color])
+                return GradientStyle(colors: [color])
             } else {
-                return BackgroundStyle()
+                return GradientStyle()
             }
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.background, newValue as BackgroundStyle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &AssociatedKeys.background, newValue as GradientStyle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
             if !newValue.colors.isEmpty {
                 backgroundColor = .clear
             }
@@ -72,7 +72,7 @@ open class DesignableView: UIView {
     public override var backgroundColor: UIColor? {
         didSet {
             if let color = backgroundColor, color != .clear {
-                background = BackgroundStyle(colors: [color])
+                background = GradientStyle(colors: [color])
             }
         }
     }
@@ -81,9 +81,9 @@ open class DesignableView: UIView {
         // Draw round corners
         addRoundCorners(corners.corners, radius: corners.radius)
         // Draw background if needs
-        drawBackgroundIfNeeds(colors: background.colors, direction: background.direction, radius: corners.radius, corners: corners.corners)
+        drawBackgroundIfNeeds(style: background, rounded: corners)
         // Draw border if needs
-        drawBorderIfNeeds(colors: border.colors, lineWidth: border.width, dashLength: border.length, dashSpace: border.space, radius: corners.radius, corners: corners.corners)
+        drawBorderIfNeeds(style: border, rounded: corners)
         
         super.draw(rect)
     }

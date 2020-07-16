@@ -181,15 +181,15 @@ extension CNProgressPointsView {
         if let color = endColor {
             colors.append(color)
         }
+        let style = CNManager.shared.style.progress
         if colors.isEmpty {
-            let style = CNManager.shared.style
-            colors = [style.progressStartColor, style.progressEndColor]
+            colors = [style.startColor, style.endColor]
         }
         let result: UIColor
         if let color = generateRadialGradientColor(in: CGRect(x: 0, y: 0, width: pointSize, height: pointSize), colors: colors) {
             result = color
         } else {
-            result = CNManager.shared.style.progressStartColor
+            result = style.startColor
         }
         return result
     }

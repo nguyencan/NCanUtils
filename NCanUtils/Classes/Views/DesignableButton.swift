@@ -52,18 +52,18 @@ open class DesignableButton: UIButton {
         }
     }
     
-    public var background: BackgroundStyle {
+    public var background: GradientStyle {
         get {
-            if let result = (objc_getAssociatedObject(self, &AssociatedKeys.background) as? BackgroundStyle) {
+            if let result = (objc_getAssociatedObject(self, &AssociatedKeys.background) as? GradientStyle) {
                 return result
             } else if let color = backgroundColor {
-                return BackgroundStyle(colors: [color])
+                return GradientStyle(colors: [color])
             } else {
-                return BackgroundStyle()
+                return GradientStyle()
             }
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.background, newValue as BackgroundStyle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &AssociatedKeys.background, newValue as GradientStyle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
             if !newValue.colors.isEmpty {
                 backgroundColor = .clear
             }
@@ -74,20 +74,21 @@ open class DesignableButton: UIButton {
     public override var backgroundColor: UIColor? {
         didSet {
             if let color = backgroundColor, color != .clear {
-                background = BackgroundStyle(colors: [color])
+                background = GradientStyle(colors: [color])
             }
         }
     }
     
     public override var isHighlighted: Bool {
         didSet {
-            if isHighlighted {
-                imageView?.alpha = CNManager.shared.style.highlightedAlpha
-                titleLabel?.alpha = CNManager.shared.style.highlightedAlpha
-            } else{
-                imageView?.alpha = 1.0
-                titleLabel?.alpha = 1.0
+            let alpha: CGFloat
+            if isHighlighted && isEnabled {
+                alpha = CNManager.shared.style.button.highlightedAlpha
+            } else {
+                alpha = 1
             }
+            imageView?.alpha = alpha
+            titleLabel?.alpha = alpha
         }
     }
     
@@ -96,9 +97,9 @@ open class DesignableButton: UIButton {
         // Draw round corners
         addRoundCorners(corners.corners, radius: corners.radius)
         // Draw background if needs
-        drawBackgroundIfNeeds(colors: background.colors, direction: background.direction, radius: corners.radius, corners: corners.corners)
+        drawBackgroundIfNeeds(style: background, rounded: corners)
         // Draw border if needs
-        drawBorderIfNeeds(colors: border.colors, lineWidth: border.width, dashLength: border.length, dashSpace: border.space, radius: corners.radius, corners: corners.corners)
+        drawBorderIfNeeds(style: border, rounded: corners)
     }
     
 }

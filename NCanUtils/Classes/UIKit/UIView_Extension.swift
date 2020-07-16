@@ -143,26 +143,6 @@ public extension UIView {
         }
     }
     
-    /// NCanUtils: Set some or all corners radiuses of view.
-    ///
-    /// - Parameters:
-    ///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
-    ///   - radius: radius for selected corners.
-    func addRoundCorners(
-        _ corners: UIRectCorner = .allCorners,
-        radius: CGFloat = CNManager.shared.style.cornerRadius)
-    {
-        layer.cornerRadius = radius
-        if #available(iOS 11.0, *) {
-            layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
-        }
-        let maskPath = UIBezierPath(
-            roundedRect: bounds,
-            byRoundingCorners: corners,
-            cornerRadii: CGSize(width: radius, height: radius))
-        layer.shadowPath = maskPath.cgPath
-    }
-    
     /// NCanUtils: Add array of subviews to view.
     ///
     /// - Parameter subviews: array of subviews to add to self.
@@ -263,6 +243,74 @@ public extension UIView {
     }
 }
 
+// MARK: - UIView:RoundedCorners Functions
+public extension UIView {
+    
+    /// NCanUtils: Remove rounded corners from view
+    func removeRounded() {
+        layer.cornerRadius = 0
+        checkAndUpdateRoundedStyle(corners: .allCorners, radius: 0)
+    }
+    
+    /// NCanUtils: Set some or all corners radiuses of view.
+    ///
+    /// - Parameters:
+    ///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
+    ///   - radius: radius for selected corners.
+    func addRoundCorners(
+        _ corners: UIRectCorner = .allCorners,
+        radius: CGFloat = CNManager.shared.style.cornerRadius)
+    {
+        layer.cornerRadius = radius
+        if #available(iOS 11.0, *) {
+            layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
+        }
+        let maskPath = UIBezierPath(
+            roundedRect: bounds,
+            byRoundingCorners: corners,
+            cornerRadii: CGSize(width: radius, height: radius))
+        layer.shadowPath = maskPath.cgPath
+        // Update CornerStyle if needs
+        checkAndUpdateRoundedStyle(corners: corners, radius: radius)
+    }
+    
+    /// NCanUtils: Set some or all corners radiuses of view.
+    ///
+    /// - Parameters:
+    ///   - position: position of view in list.
+    func addDefaultRounded(_ position: Position = .unique) {
+        switch position {
+        case .unique:
+            addRoundCorners(.allCorners)
+            break
+        case .center:
+            addRoundCorners(.allCorners, radius: 0)
+            break
+        case .top:
+            addRoundCorners([.topLeft, .topRight])
+            break
+        case .bottom:
+            addRoundCorners([.bottomLeft, .bottomRight])
+            break
+        }
+    }
+    
+    private func checkAndUpdateRoundedStyle(
+        corners: UIRectCorner,
+        radius: CGFloat)
+    {
+        if let view = self as? DesignableView {
+            view.corners = CornerStyle(corners: corners, radius: radius)
+         } else if let view = self as? DesignableLabel {
+            view.corners = CornerStyle(corners: corners, radius: radius)
+         } else if let view = self as? DesignableButton {
+            view.corners = CornerStyle(corners: corners, radius: radius)
+        } else if let view = self as? DesignableControl {
+            view.corners = CornerStyle(corners: corners, radius: radius)
+        }
+    }
+}
+
 // MARK: - UIView:Border Functions
 public extension UIView {
     
@@ -279,7 +327,7 @@ public extension UIView {
         radius: CGFloat = CNManager.shared.style.cornerRadius,
         corners: UIRectCorner = .allCorners)
     {
-        if checkAddBorder(colors: colors, direction: direction, width: width, length: 0, space: 0, radius: radius, corners: corners) {
+        if checkAndUpdateBorderStyle(colors: colors, direction: direction, width: width, length: 0, space: 0, radius: radius, corners: corners) {
             // Remove old border layer
             removeLayer(name: UIView.borderLayerName)
             // No needs draw anymore
@@ -296,7 +344,7 @@ public extension UIView {
         radius: CGFloat = CNManager.shared.style.cornerRadius,
         corners: UIRectCorner = .allCorners)
     {
-        if checkAddBorder(colors: [color], width: width, length: 0, space: 0, radius: radius, corners: corners) {
+        if checkAndUpdateBorderStyle(colors: [color], width: width, length: 0, space: 0, radius: radius, corners: corners) {
             // Remove old border layer
             removeLayer(name: UIView.borderLayerName)
             // No needs draw anymore
@@ -314,7 +362,7 @@ public extension UIView {
         radius: CGFloat = CNManager.shared.style.cornerRadius,
         corners: UIRectCorner = .allCorners)
     {
-        if checkAddBorder(colors: colors, direction: direction, width: width, length: length, space: space, radius: radius, corners: corners) {
+        if checkAndUpdateBorderStyle(colors: colors, direction: direction, width: width, length: length, space: space, radius: radius, corners: corners) {
             // Remove old border layer
             removeLayer(name: UIView.borderLayerName)
             // No needs draw anymore
@@ -334,7 +382,7 @@ public extension UIView {
         radius: CGFloat = CNManager.shared.style.cornerRadius,
         corners: UIRectCorner = .allCorners)
     {
-        if checkAddBorder(colors: [color], width: width, length: length, space: space, radius: radius, corners: corners) {
+        if checkAndUpdateBorderStyle(colors: [color], width: width, length: length, space: space, radius: radius, corners: corners) {
             // Remove old border layer
             removeLayer(name: UIView.borderLayerName)
             // No needs draw anymore
@@ -373,41 +421,35 @@ public extension UIView {
         direction: Direction = .vertical,
         width: CGFloat = CNManager.shared.style.borderWidth)
     {
+        checkAndUpdateBorderStyle(side: side, colors: colors, direction: direction, width: width, length: 0, space: 0, radius: 0, corners: .allCorners)
         if let color = generateLinearGradientColor(colors: colors, direction: direction, rect: bounds) {
-            addBorderBySide(side, color: color, width: width)
+            // Remove old border layer
+            removeLayer(name: UIView.borderLayerName)
+            
+            let borderLayer = CALayer()
+            borderLayer.backgroundColor = color.cgColor
+            borderLayer.name = UIView.borderLayerName
+            switch side {
+            case .left:
+                borderLayer.frame = CGRect(x: 0.0, y: 0.0, width: width, height: frame.height)
+                break
+            case .right:
+                borderLayer.frame = CGRect(x: frame.width - width, y: 0.0, width: width, height: frame.height)
+                break
+            case .top:
+                borderLayer.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: width)
+                break
+            case .bottom:
+                borderLayer.frame = CGRect(x: 0.0, y: frame.height - width, width: frame.width, height: width)
+                break
+            }
+            layer.addSublayer(borderLayer)
         }
     }
     
-    func addBorderBySide(
-        _ side: Side,
-        color: UIColor,
-        width: CGFloat = CNManager.shared.style.borderWidth)
-    {
-        // Remove old border layer
-        removeLayer(name: UIView.borderLayerName)
-        
-        let borderLayer = CALayer()
-        borderLayer.backgroundColor = color.cgColor
-        borderLayer.name = UIView.borderLayerName
-        switch side {
-        case .left:
-            borderLayer.frame = CGRect(x: 0.0, y: 0.0, width: width, height: frame.height)
-            break
-        case .right:
-            borderLayer.frame = CGRect(x: frame.width - width, y: 0.0, width: width, height: frame.height)
-            break
-        case .top:
-            borderLayer.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: width)
-            break
-        case .bottom:
-            borderLayer.frame = CGRect(x: 0.0, y: frame.height - width, width: frame.width, height: width)
-            break
-        }
-        
-        layer.addSublayer(borderLayer)
-    }
-    
-    private func checkAddBorder(
+    @discardableResult
+    private func checkAndUpdateBorderStyle(
+        side: Side? = nil,
         colors: [UIColor],
         direction: Direction = .vertical,
         width: CGFloat,
@@ -416,28 +458,26 @@ public extension UIView {
         radius: CGFloat,
         corners: UIRectCorner) -> Bool
     {
-        if colors.count > 0 {
-            if let view = self as? DesignableView {
-                view.corners = CornerStyle(corners: corners, radius: radius)
-                view.border = BorderStyle(colors: colors, direction: direction, width: width, length: length, space: space)
-                
-                return true
-            } else if let view = self as? DesignableLabel {
-                view.corners = CornerStyle(corners: corners, radius: radius)
-                view.border = BorderStyle(colors: colors, direction: direction, width: width, length: length, space: space)
-                
-                return true
-            } else if let view = self as? DesignableButton {
-               view.corners = CornerStyle(corners: corners, radius: radius)
-               view.border = BorderStyle(colors: colors, direction: direction, width: width, length: length, space: space)
-               
-               return true
-           } else if let view = self as? DesignableControl {
-                view.corners = CornerStyle(corners: corners, radius: radius)
-                view.border = BorderStyle(colors: colors, direction: direction, width: width, length: length, space: space)
+        if let view = self as? DesignableView {
+             view.corners = CornerStyle(corners: corners, radius: radius)
+            view.border = BorderStyle(side: side, colors: colors, direction: direction, width: width, length: length, space: space)
+             
+             return true
+         } else if let view = self as? DesignableLabel {
+             view.corners = CornerStyle(corners: corners, radius: radius)
+             view.border = BorderStyle(side: side, colors: colors, direction: direction, width: width, length: length, space: space)
+             
+             return true
+         } else if let view = self as? DesignableButton {
+            view.corners = CornerStyle(corners: corners, radius: radius)
+            view.border = BorderStyle(side: side, colors: colors, direction: direction, width: width, length: length, space: space)
+            
+            return true
+        } else if let view = self as? DesignableControl {
+             view.corners = CornerStyle(corners: corners, radius: radius)
+             view.border = BorderStyle(side: side, colors: colors, direction: direction, width: width, length: length, space: space)
 
-                return true
-            }
+             return true
         }
         return false
     }
@@ -458,7 +498,7 @@ public extension UIView {
         radius: CGFloat = CNManager.shared.style.cornerRadius,
         corners: UIRectCorner = .allCorners)
     {
-        if checkAddBackground(colors: colors, direction: direction, radius: radius, corners: corners) {
+        if checkAndUpdateBackgroundStyle(colors: colors, direction: direction, radius: radius, corners: corners) {
             // Remove old background layer
             removeLayer(name: UIView.backgroundLayerName)
             // No needs draw anymore
@@ -477,7 +517,7 @@ public extension UIView {
         backgroundColor = .clear
     }
     
-    func checkAddBackground(
+    func checkAndUpdateBackgroundStyle(
         colors: [UIColor],
         direction: Direction,
         radius: CGFloat,
@@ -485,22 +525,22 @@ public extension UIView {
     {
         if colors.count > 0 {
             if let view = self as? DesignableView {
-                view.background = BackgroundStyle(colors: colors, direction: direction)
+                view.background = GradientStyle(colors: colors, direction: direction)
                 view.corners = CornerStyle(corners: corners, radius: radius)
                 
                 return true
             } else if let view = self as? DesignableLabel {
-                view.background = BackgroundStyle(colors: colors, direction: direction)
+                view.background = GradientStyle(colors: colors, direction: direction)
                 view.corners = CornerStyle(corners: corners, radius: radius)
                 
                 return true
             } else if let view = self as? DesignableButton {
-               view.background = BackgroundStyle(colors: colors, direction: direction)
+               view.background = GradientStyle(colors: colors, direction: direction)
                view.corners = CornerStyle(corners: corners, radius: radius)
                
                return true
            } else if let view = self as? DesignableControl {
-                view.background = BackgroundStyle(colors: colors, direction: direction)
+                view.background = GradientStyle(colors: colors, direction: direction)
                 view.corners = CornerStyle(corners: corners, radius: radius)
 
                 return true
@@ -539,6 +579,20 @@ public extension UIView {
         layer.masksToBounds = false
     }
     
+    func addDefaultShadow(_ position: Position = .unique) {
+        switch position {
+        case .unique, .center:
+            addSketchShadow()
+            break
+        case .top:
+            addSketchShadow(x: 0, y: 4, blur: CNManager.shared.style.shadowBlur/2)
+            break
+        case .bottom:
+            addSketchShadow(x: 0, y: -4, blur: CNManager.shared.style.shadowBlur/2)
+            break
+        }
+    }
+    
     func addSketchShadow(
         color: UIColor = CNManager.shared.style.shadowColor,
         alpha: Float = CNManager.shared.style.shadowAlpha,
@@ -560,21 +614,18 @@ public extension UIView {
 extension UIView {
     
     func drawBackgroundIfNeeds(
-        colors: [UIColor],
-        locations: UnsafePointer<CGFloat>? = nil,
-        direction: Direction = .vertical,
-        radius: CGFloat = 0,
-        corners: UIRectCorner = .allCorners)
+        style: GradientStyle = GradientStyle(),
+        rounded: CornerStyle = CornerStyle())
     {
-        if let color = generateLinearGradientColor(colors: colors, locations: locations, direction: direction, rect: bounds) {
+        if let color = generateLinearGradientColor(colors: style.colors, locations: style.locations, direction: style.direction, rect: bounds) {
             guard let context = UIGraphicsGetCurrentContext() else {
                 return
             }
             context.saveGState()
             
             let path: UIBezierPath
-            if radius > 0 {
-                path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+            if rounded.radius > 0 {
+                path = UIBezierPath(roundedRect: bounds, byRoundingCorners: rounded.corners, cornerRadii: CGSize(width: rounded.radius, height: rounded.radius))
             } else {
                 path = UIBezierPath(rect: bounds)
             }
@@ -588,42 +639,41 @@ extension UIView {
     }
     
     func drawBorderIfNeeds(
-        colors: [UIColor],
-        direction: Direction = .vertical,
-        lineWidth: CGFloat,
-        dashLength: CGFloat = 0,
-        dashSpace: CGFloat = 0,
-        radius: CGFloat = 0,
-        corners: UIRectCorner = .allCorners)
+        style: BorderStyle = BorderStyle(),
+        rounded: CornerStyle = CornerStyle())
     {
         layer.borderColor = UIColor.clear.cgColor
         layer.borderWidth = 0
-
-        if lineWidth > 0, let color = generateLinearGradientColor(colors: colors, direction: direction, rect: bounds) {
+        if let side = style.side {
+            addBorderBySide(side, colors: style.colors, direction: style.direction, width: style.width)
+            return
+        }
+        if style.width > 0, let color = generateLinearGradientColor(colors: style.colors, direction: style.direction, rect: bounds) {
             let context = UIGraphicsGetCurrentContext()
             context?.saveGState()
             
-            let rect = bounds.inset(by: UIEdgeInsets(top: lineWidth/2, left: lineWidth/2, bottom: lineWidth/2, right: lineWidth/2))
+            let inset = style.width/2
+            let rect = bounds.inset(by: UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset))
             let path: UIBezierPath
-            if radius > 0 {
-                path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+            if rounded.radius > 0 {
+                path = UIBezierPath(roundedRect: rect, byRoundingCorners: rounded.corners, cornerRadii: CGSize(width: rounded.radius, height: rounded.radius))
             } else {
-                path = UIBezierPath(roundedRect: rect, cornerRadius: 0)
+                path = UIBezierPath(roundedRect: rect, cornerRadius: rounded.radius)
             }
             UIColor.clear.setFill()
             path.fill()
             
             color.setStroke()
-            path.lineWidth = lineWidth
+            path.lineWidth = style.width
             
-            if dashLength > 0 {
+            if style.length > 0 {
                 let dashPattern: [CGFloat]
                 let lineCapStyle: CGLineCap
-                if dashLength == lineWidth {
-                    dashPattern = [0, dashSpace]
+                if style.length == style.width {
+                    dashPattern = [0, style.space]
                     lineCapStyle = .round
                 } else {
-                    dashPattern = [dashLength, dashSpace]
+                    dashPattern = [style.length, style.space]
                     lineCapStyle = .butt
                 }
                 path.setLineDash(dashPattern, count: dashPattern.count, phase: 0)
