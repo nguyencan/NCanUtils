@@ -34,6 +34,7 @@
 		406ADC682455E07900D73051 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406ADC662455E07900D73051 /* LaunchScreen.storyboard */; };
 		407B4FC624BFF1D700C04BF5 /* CNDefaultShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407B4FC524BFF1D700C04BF5 /* CNDefaultShadowView.swift */; };
 		40926747247F6E670058E86A /* Int_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40926746247F6E670058E86A /* Int_Extension.swift */; };
+		40A8BD9D24C141A10097A8AD /* CNGradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8BD9C24C141A10097A8AD /* CNGradientLabel.swift */; };
 		40AF0EE624BC36CE008240B8 /* CNProgressPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF0EE524BC36CE008240B8 /* CNProgressPointsView.swift */; };
 		40AF0EE824BC3B0F008240B8 /* CNProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF0EE724BC3B0F008240B8 /* CNProgressCircleView.swift */; };
 		40AF0EEB24BC5CE2008240B8 /* CNProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF0EEA24BC5CE2008240B8 /* CNProgressView.swift */; };
@@ -57,8 +58,8 @@
 		40D51A5C24582CAD00BD856D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40D51A5B24582CAD00BD856D /* Assets.xcassets */; };
 		40DA9A4024B5AE95002BD3CD /* UIButton_RippleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA9A3F24B5AE95002BD3CD /* UIButton_RippleEffect.swift */; };
 		40DA9A4224B5B815002BD3CD /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA9A4124B5B815002BD3CD /* DesignableButton.swift */; };
-		40DA9A4424B5BA1D002BD3CD /* LineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA9A4324B5BA1D002BD3CD /* LineButton.swift */; };
-		40DA9A4624B5CA94002BD3CD /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA9A4524B5CA94002BD3CD /* GradientButton.swift */; };
+		40DA9A4424B5BA1D002BD3CD /* CNLineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA9A4324B5BA1D002BD3CD /* CNLineButton.swift */; };
+		40DA9A4624B5CA94002BD3CD /* CNGradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA9A4524B5CA94002BD3CD /* CNGradientButton.swift */; };
 		40DD077C24592FF400C303D7 /* Sequence_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD077B24592FF400C303D7 /* Sequence_Extension.swift */; };
 		40DD077F2459322700C303D7 /* UITextView+HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD077E2459322700C303D7 /* UITextView+HTMLString.swift */; };
 		40DD0781245935DA00C303D7 /* VersionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD0780245935DA00C303D7 /* VersionManager.swift */; };
@@ -71,6 +72,7 @@
 		40DD079024595D5D00C303D7 /* DateFormatter_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD078F24595D5D00C303D7 /* DateFormatter_Extension.swift */; };
 		40DD07922459633D00C303D7 /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD07912459633D00C303D7 /* UIView_Extension.swift */; };
 		40DD0794245963DD00C303D7 /* CNImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD0793245963DD00C303D7 /* CNImageViewer.swift */; };
+		40E1266324C551E400C10D4D /* CNMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1266224C551E400C10D4D /* CNMenuButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +107,7 @@
 		406ADC692455E07900D73051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		407B4FC524BFF1D700C04BF5 /* CNDefaultShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNDefaultShadowView.swift; sourceTree = "<group>"; };
 		40926746247F6E670058E86A /* Int_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int_Extension.swift; sourceTree = "<group>"; };
+		40A8BD9C24C141A10097A8AD /* CNGradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNGradientLabel.swift; sourceTree = "<group>"; };
 		40AF0EE524BC36CE008240B8 /* CNProgressPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNProgressPointsView.swift; sourceTree = "<group>"; };
 		40AF0EE724BC3B0F008240B8 /* CNProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNProgressCircleView.swift; sourceTree = "<group>"; };
 		40AF0EEA24BC5CE2008240B8 /* CNProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNProgressView.swift; sourceTree = "<group>"; };
@@ -128,8 +131,8 @@
 		40D51A5B24582CAD00BD856D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40DA9A3F24B5AE95002BD3CD /* UIButton_RippleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_RippleEffect.swift; sourceTree = "<group>"; };
 		40DA9A4124B5B815002BD3CD /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
-		40DA9A4324B5BA1D002BD3CD /* LineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineButton.swift; sourceTree = "<group>"; };
-		40DA9A4524B5CA94002BD3CD /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		40DA9A4324B5BA1D002BD3CD /* CNLineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNLineButton.swift; sourceTree = "<group>"; };
+		40DA9A4524B5CA94002BD3CD /* CNGradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNGradientButton.swift; sourceTree = "<group>"; };
 		40DD077B24592FF400C303D7 /* Sequence_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence_Extension.swift; sourceTree = "<group>"; };
 		40DD077E2459322700C303D7 /* UITextView+HTMLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+HTMLString.swift"; sourceTree = "<group>"; };
 		40DD0780245935DA00C303D7 /* VersionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionManager.swift; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 		40DD078F24595D5D00C303D7 /* DateFormatter_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter_Extension.swift; sourceTree = "<group>"; };
 		40DD07912459633D00C303D7 /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
 		40DD0793245963DD00C303D7 /* CNImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNImageViewer.swift; sourceTree = "<group>"; };
+		40E1266224C551E400C10D4D /* CNMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNMenuButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,9 +303,11 @@
 				40DA9A4124B5B815002BD3CD /* DesignableButton.swift */,
 				404D1B4624BD860700BAC2D7 /* DesignableControl.swift */,
 				40B20AC624B6FD7700F5388A /* DesignableLabel.swift */,
-				40DA9A4324B5BA1D002BD3CD /* LineButton.swift */,
-				40DA9A4524B5CA94002BD3CD /* GradientButton.swift */,
+				40DA9A4324B5BA1D002BD3CD /* CNLineButton.swift */,
+				40DA9A4524B5CA94002BD3CD /* CNGradientButton.swift */,
+				40A8BD9C24C141A10097A8AD /* CNGradientLabel.swift */,
 				4054133A24BEA19500E6462F /* CNNextButton.swift */,
+				40E1266224C551E400C10D4D /* CNMenuButton.swift */,
 				4054133D24BEE56800E6462F /* CNRoundedShadowView.swift */,
 				407B4FC524BFF1D700C04BF5 /* CNDefaultShadowView.swift */,
 			);
@@ -429,7 +435,7 @@
 				40D51A5A245820D600BD856D /* UIButton_Extension.swift in Sources */,
 				406ADC362455BFC500D73051 /* CustomXibViewUtility.swift in Sources */,
 				40B17364245A9BC300F6BDC8 /* UIStackView_Extension.swift in Sources */,
-				40DA9A4624B5CA94002BD3CD /* GradientButton.swift in Sources */,
+				40DA9A4624B5CA94002BD3CD /* CNGradientButton.swift in Sources */,
 				40DD079024595D5D00C303D7 /* DateFormatter_Extension.swift in Sources */,
 				40DD078324593FD800C303D7 /* Array_Extension.swift in Sources */,
 				406ADC3A2455CEDB00D73051 /* String_Extension.swift in Sources */,
@@ -455,7 +461,7 @@
 				40DD078A2459537300C303D7 /* MoneyUtility.swift in Sources */,
 				40DD078C2459573300C303D7 /* Double_Extension.swift in Sources */,
 				40B20AC324B6D9B000F5388A /* DesignableView.swift in Sources */,
-				40DA9A4424B5BA1D002BD3CD /* LineButton.swift in Sources */,
+				40DA9A4424B5BA1D002BD3CD /* CNLineButton.swift in Sources */,
 				40D51A5824581C6C00BD856D /* CNLeftSideTitleView.swift in Sources */,
 				4054133B24BEA19600E6462F /* CNNextButton.swift in Sources */,
 				404D1B4524BD500900BAC2D7 /* CNManager.swift in Sources */,
@@ -469,6 +475,7 @@
 				40AF0EE824BC3B0F008240B8 /* CNProgressCircleView.swift in Sources */,
 				4004CEEC2458608600E82F10 /* CGPoint_Extension.swift in Sources */,
 				40D51A4F2457D8DB00BD856D /* AppRouteUtility.swift in Sources */,
+				40E1266324C551E400C10D4D /* CNMenuButton.swift in Sources */,
 				4004CEE8245849D300E82F10 /* CGRect_Extension.swift in Sources */,
 				4004CEE62458471500E82F10 /* UITextField_Extension.swift in Sources */,
 				40235D8024BC11A700B29346 /* Shadow_Extension.swift in Sources */,
@@ -476,6 +483,7 @@
 				40235D7E24BBFFDE00B29346 /* CALayer_Extension.swift in Sources */,
 				40D51A532457F28E00BD856D /* UIViewController_Extension.swift in Sources */,
 				40DA9A4024B5AE95002BD3CD /* UIButton_RippleEffect.swift in Sources */,
+				40A8BD9D24C141A10097A8AD /* CNGradientLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

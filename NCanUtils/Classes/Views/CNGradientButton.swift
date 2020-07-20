@@ -1,5 +1,5 @@
 //
-//  GradientButton.swift
+//  CNGradientButton.swift
 //  NCanUtils
 //
 //  Created by Nguyen Can on 7/8/20.
@@ -10,7 +10,7 @@
 import UIKit
 
 @IBDesignable
-open class GradientButton: DesignableButton {
+open class CNGradientButton: DesignableButton {
 
     @IBInspectable public var startColor: UIColor? = nil {
         didSet {

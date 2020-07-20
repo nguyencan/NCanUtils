@@ -9,6 +9,10 @@
 #if canImport(CoreGraphics)
 import CoreGraphics
 
+#if canImport(UIKit)
+import UIKit
+#endif
+
 // MARK: - Properties
 public extension CGRect {
 
@@ -58,6 +62,21 @@ public extension CGRect {
                       size: size)
     }
 
+    #if canImport(UIKit)
+    func draw(style: DrawStyle = .fill, color: UIColor) {
+        color.set()
+        let path: UIBezierPath = UIBezierPath(rect: self)
+        switch style {
+        case .fill:
+            path.fill()
+            break
+        case .line:
+            path.stroke()
+            break
+        }
+        
+    }
+    #endif
 }
 
 #endif

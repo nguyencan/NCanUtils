@@ -27,6 +27,7 @@ public class CNViewStyle {
     public var gradientEndColor: UIColor = UIColor(hex: 0x3BB2B8)
     
     public var button = ButtonStyle()
+    public var menu = MenuStyle()
     public var progress = ProgressStyle()
 }
 
@@ -45,16 +46,29 @@ public class ButtonStyle {
     public var rippleEffect: Bool = false
     public var rippleColor: UIColor = UIColor(hex: 0x55C2C2)
     
-    public var titleColor: UIColor = UIColor(hex: 0x172B4D)
-    public var titleSize: CGFloat = 16
+    public var primaryColor: UIColor = UIColor(hex: 0x172B4D)
+    public var primarySize: CGFloat = 16
     
-    public var subtitleColor: UIColor = UIColor(hex: 0x8993A4)
-    public var subtitleSize: CGFloat = 12
+    public var secondaryColor: UIColor = UIColor(hex: 0x8993A4)
+    public var secondarySize: CGFloat = 12
     
     public var horizontalSpace: CGFloat = 16
     public var lineSpace: CGFloat = 2
     
     public var dividerColor: UIColor = UIColor(hex: 0xF4F5F7)
+}
+
+public class MenuStyle {
+    
+    public var titleColor: UIColor = UIColor(hex: 0x172B4D)
+    public var titleSize: CGFloat = 13
+    public var fontWeight: UIFont.Weight = .bold
+    
+    public var lines: CGFloat = 2
+    public var padding: CGFloat = 16
+    public var titleLeftSpace: CGFloat = 8
+    public var titleTopSpace: CGFloat = 8
+    public var cornerRadius: CGFloat = 16
 }
 
 public class CNManager {

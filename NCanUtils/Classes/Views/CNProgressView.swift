@@ -9,7 +9,7 @@
 #if canImport(UIKit) && os(iOS)
 import UIKit
 
-public extension ProgressView {
+public extension CNProgressView {
     
     enum Style: Int {
         case circle, point
@@ -25,10 +25,10 @@ public extension ProgressView {
         show(style: .point, startColor: startColor, endColor: endColor, background: background)
     }
     
-    static func show(style: ProgressView.Style = .circle, startColor: UIColor? = nil, endColor: UIColor? = nil, background: [UIColor] = []) {
+    static func show(style: CNProgressView.Style = .circle, startColor: UIColor? = nil, endColor: UIColor? = nil, background: [UIColor] = []) {
         if let window: UIWindow = UIApplication.getWindow() {
-            let view = ProgressView(frame: window.bounds)
-            view.tag = ProgressView.name.hashValue
+            let view = CNProgressView(frame: window.bounds)
+            view.tag = CNProgressView.name.hashValue
             view.style = style
             view.startColor = startColor
             view.endColor = endColor
@@ -45,7 +45,7 @@ public extension ProgressView {
     
     static func dismiss() {
         if let window: UIWindow = UIApplication.getWindow() {
-            let tag: Int = ProgressView.name.hashValue
+            let tag: Int = CNProgressView.name.hashValue
             for view in window.subviews {
                 if view.tag == tag {
                     view.removeFromSuperview()
@@ -55,7 +55,7 @@ public extension ProgressView {
     }
 }
 
-public class ProgressView: UIView {
+public class CNProgressView: UIView {
 
     class var name: String {
         return "\(self)"

@@ -111,15 +111,21 @@ open class DesignableLabel: UILabel {
         guard let text = self.text, let textInsets = textInsets else {
             return contentSize
         }
-        let insetsHeight: CGFloat = textInsets.top + textInsets.bottom
-        let insetsWidth: CGFloat = textInsets.left + textInsets.right
+        let insetsHeight: CGFloat = textInsets.vertical
+        let insetsWidth: CGFloat = textInsets.horizontal
         if let font = self.font {
             let textWidth: CGFloat = frame.size.width - insetsWidth
-
+            
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.alignment = self.textAlignment
+            paragraph.paragraphSpacingBefore = 0
+            paragraph.paragraphSpacing = 0
+            paragraph.minimumLineHeight = font.lineHeight
+            paragraph.maximumLineHeight = font.lineHeight
             let newSize = text.boundingRect(
                 with: CGSize(width: textWidth, height: .greatestFiniteMagnitude),
-                options: .usesLineFragmentOrigin,
-                attributes: [.font: font],
+                options: [.usesLineFragmentOrigin, .usesFontLeading],
+                attributes: [.font: font, .paragraphStyle: paragraph],
                 context: nil)
 
             contentSize.height = ceil(newSize.size.height) + insetsHeight
@@ -130,14 +136,11 @@ open class DesignableLabel: UILabel {
         }
         return contentSize
     }
-    
-    override public func sizeThatFits(_ size: CGSize) -> CGSize {
-        var adjSize = super.sizeThatFits(size)
-        if let insets = textInsets {
-            adjSize.width += insets.left + insets.right
-            adjSize.height += insets.top + insets.bottom
-        }
-        return adjSize
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        // Refresh content size after frame's changed
+        invalidateIntrinsicContentSize()
     }
 
     override public func draw(_ rect: CGRect) {

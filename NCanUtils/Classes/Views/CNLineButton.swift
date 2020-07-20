@@ -1,5 +1,5 @@
 //
-//  LineButton.swift
+//  CNLineButton.swift
 //  NCanUtils
 //
 //  Created by Nguyen Can on 7/8/20.
@@ -10,7 +10,7 @@
 import UIKit
 
 @IBDesignable
-open class LineButton: DesignableButton {
+open class CNLineButton: DesignableButton {
     
     @IBInspectable public var startColor: UIColor? = nil {
         didSet {

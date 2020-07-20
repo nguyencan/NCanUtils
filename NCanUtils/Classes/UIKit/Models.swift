@@ -87,3 +87,7 @@ public enum Position: Int {
         self = result
     }
 }
+
+public enum DrawStyle: Int {
+    case fill, line
+}

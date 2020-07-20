@@ -19,15 +19,7 @@ class FirstViewController: UIViewController {
             mBottomBar.addBorderBySide(.top, colors: [.blue, .green])
         }
     }
-    @IBOutlet weak var mTopLabel: DesignableLabel! {
-        didSet {
-            mTopLabel.textInsets = EdgeInsets(left: 16, right: 16)
-            mTopLabel.textColors = GradientStyle(colors: [.red, .purple])
-            mTopLabel.border = BorderStyle(colors: [.red, .purple], length: 4, space: 2)
-            mTopLabel.corners = CornerStyle(radius: 5)
-            mTopLabel.textAlignment = .center
-        }
-    }
+    @IBOutlet weak var mTopLabel: CNGradientLabel!
     @IBOutlet weak var mInputView: UITextField!
     @IBOutlet weak var mResultLabel: DesignableLabel! {
         didSet {
@@ -62,9 +54,9 @@ class FirstViewController: UIViewController {
         let result = "\(text.isAllDigits)".uppercased()
         mResultLabel?.text = "All Digits: \(result)"
         
-        ProgressView.show(style: .circle)
+        CNProgressView.show(style: .circle)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            ProgressView.dismiss()
+            CNProgressView.dismiss()
         }
     }
     
@@ -73,9 +65,9 @@ class FirstViewController: UIViewController {
         let result = "\(text.isNumberic)".uppercased()
         mResultLabel?.text = "Numberic: \(result)"
         
-        ProgressView.show(style: .point, startColor: .red, endColor: .white, background: [.clear])
+        CNProgressView.show(style: .point, startColor: .red, endColor: .white, background: [.clear])
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            ProgressView.dismiss()
+            CNProgressView.dismiss()
         }
     }
     
