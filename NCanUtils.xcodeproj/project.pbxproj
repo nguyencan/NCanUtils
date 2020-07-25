@@ -43,6 +43,7 @@
 		40B20AC324B6D9B000F5388A /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B20AC224B6D9B000F5388A /* DesignableView.swift */; };
 		40B20AC524B6F83200F5388A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B20AC424B6F83200F5388A /* Models.swift */; };
 		40B20AC724B6FD7700F5388A /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B20AC624B6FD7700F5388A /* DesignableLabel.swift */; };
+		40BDBBCF24CA8F42002F43B3 /* CNValueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDBBCE24CA8F42002F43B3 /* CNValueButton.swift */; };
 		40D51A4224574B1F00BD856D /* URL_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D51A4124574B1F00BD856D /* URL_Extension.swift */; };
 		40D51A442457534F00BD856D /* Date_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D51A432457534F00BD856D /* Date_Extension.swift */; };
 		40D51A462457C78800BD856D /* Color_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D51A452457C78800BD856D /* Color_Extension.swift */; };
@@ -116,6 +117,7 @@
 		40B20AC224B6D9B000F5388A /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		40B20AC424B6F83200F5388A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		40B20AC624B6FD7700F5388A /* DesignableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
+		40BDBBCE24CA8F42002F43B3 /* CNValueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNValueButton.swift; sourceTree = "<group>"; };
 		40D51A4124574B1F00BD856D /* URL_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL_Extension.swift; sourceTree = "<group>"; };
 		40D51A432457534F00BD856D /* Date_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date_Extension.swift; sourceTree = "<group>"; };
 		40D51A452457C78800BD856D /* Color_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_Extension.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				40DA9A4524B5CA94002BD3CD /* CNGradientButton.swift */,
 				40A8BD9C24C141A10097A8AD /* CNGradientLabel.swift */,
 				4054133A24BEA19500E6462F /* CNNextButton.swift */,
+				40BDBBCE24CA8F42002F43B3 /* CNValueButton.swift */,
 				40E1266224C551E400C10D4D /* CNMenuButton.swift */,
 				4054133D24BEE56800E6462F /* CNRoundedShadowView.swift */,
 				407B4FC524BFF1D700C04BF5 /* CNDefaultShadowView.swift */,
@@ -481,6 +484,7 @@
 				40235D8024BC11A700B29346 /* Shadow_Extension.swift in Sources */,
 				40D51A462457C78800BD856D /* Color_Extension.swift in Sources */,
 				40235D7E24BBFFDE00B29346 /* CALayer_Extension.swift in Sources */,
+				40BDBBCF24CA8F42002F43B3 /* CNValueButton.swift in Sources */,
 				40D51A532457F28E00BD856D /* UIViewController_Extension.swift in Sources */,
 				40DA9A4024B5AE95002BD3CD /* UIButton_RippleEffect.swift in Sources */,
 				40A8BD9D24C141A10097A8AD /* CNGradientLabel.swift in Sources */,
@@ -572,6 +576,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_NO_PIE = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -630,6 +635,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_NO_PIE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -654,6 +660,7 @@
 				INFOPLIST_FILE = NCanUtils/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_NO_PIE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,6 +689,7 @@
 				INFOPLIST_FILE = NCanUtils/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_NO_PIE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -703,7 +711,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NCanUtilsExamples/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -721,7 +729,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NCanUtilsExamples/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

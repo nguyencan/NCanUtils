@@ -12,9 +12,9 @@ import UIKit
 @IBDesignable
 open class CNDefaultShadowView: DesignableView {
 
-    @IBInspectable var viewPosition: Int = Position.unique.rawValue {
+    @IBInspectable var viewPosition: Int = GridPosition.unique.rawValue {
         didSet {
-            position = Position(rawValue: viewPosition)
+            position = GridPosition(rawValue: viewPosition)
             setNeedsDisplay()
         }
     }
@@ -31,19 +31,25 @@ open class CNDefaultShadowView: DesignableView {
         }
     }
     
-    public var position: Position = .unique
+    public var position: GridPosition = .unique
 
     open override func draw(_ rect: CGRect) {
-        super.draw(rect)
         // Draw rounded corners
         if rounded {
-            addDefaultRounded(position)
+            let radius: CGFloat
+            if corners.radius > 0 {
+                radius = corners.radius
+            } else {
+                radius = CNManager.shared.style.cornerRadius
+            }
+            corners = position.toCorners(radius: radius)
         } else {
-            removeRounded()
+            corners.radius = 0
         }
+        super.draw(rect)
         // Draw shadow
         if shadow {
-            addDefaultShadow(position)
+            addDefaultShadow(position.toSide())
         } else {
             removeShadow()
         }

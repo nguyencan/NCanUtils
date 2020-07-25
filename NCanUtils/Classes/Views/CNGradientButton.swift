@@ -24,6 +24,12 @@ open class CNGradientButton: DesignableButton {
         }
     }
     
+    @IBInspectable public var defaultTitleColor: Bool = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initialValues()
@@ -34,8 +40,18 @@ open class CNGradientButton: DesignableButton {
         initialValues()
     }
     
+    public override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        // Set title color
+        if defaultTitleColor {
+            setTitleColor(.white, for: .normal)
+        }
+    }
+    
     private func initialValues() {
-        setTitleColor(.white, for: .normal)
+        if self.titleColor(for: .normal) == nil {
+            setTitleColor(.white, for: .normal)
+        }
         cornerRadius = CNManager.shared.style.cornerRadius
         refreshBackground()
     }

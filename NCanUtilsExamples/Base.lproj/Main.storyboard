@@ -35,10 +35,10 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="456"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFN-3M-7gb" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="738"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NmL-SC-jG4">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="738"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Enm-8M-7Is" userLabel="Top View" customClass="CNDefaultShadowView" customModule="NCanUtils">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
@@ -72,7 +72,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Daq-xw-RFZ">
-                                                        <rect key="frame" x="0.0" y="118" width="320" height="620"/>
+                                                        <rect key="frame" x="0.0" y="118" width="320" height="410"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9L-hD-qkj">
                                                                 <rect key="frame" x="16" y="20" width="288" height="38"/>
@@ -148,41 +148,14 @@
                                                                 <rect key="frame" x="16" y="182" width="288" height="44"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5CA-bq-4i2" customClass="CNLineButton" customModule="NCanUtils">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="44"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
                                                                         <state key="normal" title="Email"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="effectTitleColor" value="NO"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="defaultTitleColor" value="NO"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="actionEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GET-LG-8Fw"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wK2-7S-mux" customClass="DesignableButton" customModule="NCanUtils">
-                                                                        <rect key="frame" x="150" y="0.0" width="138" height="44"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <state key="normal" title="To Second View"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <real key="value" value="5"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                                <color key="value" red="0.090196078430000007" green="0.16862745100000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                                <real key="value" value="0.16"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                                                <size key="value" width="0.0" height="4"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowBlur">
-                                                                                <real key="value" value="16"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowSpread">
-                                                                                <real key="value" value="0.0"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                        <connections>
-                                                                            <action selector="actionChangeView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z2u-WQ-4nD"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -195,9 +168,7 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQR-tF-wL6" customClass="CNGradientButton" customModule="NCanUtils">
                                                                         <rect key="frame" x="0.0" y="0.0" width="138" height="44"/>
-                                                                        <state key="normal" title="All Digits">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </state>
+                                                                        <state key="normal" title="All Digits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                                                                 <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -220,6 +191,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowSpread">
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="defaultTitleColor" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="actionAllDigits:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nvu-i3-xFq"/>
@@ -228,8 +200,11 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujC-5P-h2E" customClass="CNGradientButton" customModule="NCanUtils">
                                                                         <rect key="frame" x="150" y="0.0" width="138" height="44"/>
                                                                         <state key="normal" title="Numberic">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="defaultTitleColor" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="actionNumberic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lj9-5T-Li8"/>
                                                                         </connections>
@@ -239,95 +214,66 @@
                                                                     <constraint firstAttribute="height" constant="44" id="tJc-qX-qnb"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CNNextButton:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmU-RM-dTn">
-                                                                <rect key="frame" x="16" y="294" width="288" height="18"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                                <color key="textColor" red="0.53725490196078429" green="0.57647058823529407" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sy-Lj-oL7" customClass="CNRoundedShadowView" customModule="NCanUtils">
-                                                                <rect key="frame" x="16" y="324" width="288" height="280"/>
-                                                                <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pFW-gd-jz6">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="280"/>
-                                                                        <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anA-zo-27N" customClass="CNNextButton" customModule="NCanUtils">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="288" height="46.5"/>
-                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-contact"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="arrow" value="NO"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="CNNextButton"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryText" value="Button 2 lines style and no arrow icon"/>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                            </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8n-s2-TSd" customClass="CNNextButton" customModule="NCanUtils">
-                                                                                <rect key="frame" x="0.0" y="46.5" width="288" height="47"/>
-                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-settings"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="CNNextButton"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryText" value="Button 2 lines style with arrow icon"/>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                            </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xg-RS-Kj4" customClass="CNNextButton" customModule="NCanUtils">
-                                                                                <rect key="frame" x="0.0" y="93.5" width="288" height="46.5"/>
-                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-coupon"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="CNNextButton: 1 line style with arrow icon"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                            </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gY8-YB-lJu" customClass="CNNextButton" customModule="NCanUtils">
-                                                                                <rect key="frame" x="0.0" y="140" width="288" height="46.5"/>
-                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="ValueText with Arrow"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryText" value="CNNextButton:"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isValueView" value="YES"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                            </view>
-                                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcx-D8-3Gh" customClass="CNNextButton" customModule="NCanUtils">
-                                                                                <rect key="frame" x="0.0" y="186.5" width="288" height="47"/>
-                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="ValueText no Arrow"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryText" value="CNNextButton:"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isValueView" value="YES"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="arrow" value="NO"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                            </view>
-                                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ae-cg-7Cj" customClass="CNNextButton" customModule="NCanUtils">
-                                                                                <rect key="frame" x="0.0" y="233.5" width="288" height="46.5"/>
-                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="ValueText no Arrow"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryText" value="CNNextButton:"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isValueView" value="YES"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="arrow" value="NO"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkipArrowSpace" value="YES"/>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                            </view>
-                                                                        </subviews>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="280" id="FRo-MX-vLT"/>
-                                                                        </constraints>
-                                                                    </stackView>
-                                                                </subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wK2-7S-mux" customClass="DesignableButton" customModule="NCanUtils">
+                                                                <rect key="frame" x="16" y="294" width="288" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="280" id="fTq-06-qxm"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="pFW-gd-jz6" secondAttribute="bottom" id="gXA-xo-kQl"/>
-                                                                    <constraint firstItem="pFW-gd-jz6" firstAttribute="top" secondItem="6sy-Lj-oL7" secondAttribute="top" id="kxq-9R-QnR"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="pFW-gd-jz6" secondAttribute="trailing" id="pJ9-tf-XSu"/>
-                                                                    <constraint firstItem="pFW-gd-jz6" firstAttribute="leading" secondItem="6sy-Lj-oL7" secondAttribute="leading" id="uum-dw-t7H"/>
+                                                                    <constraint firstAttribute="height" constant="44" id="mmg-lT-ep6"/>
                                                                 </constraints>
-                                                            </view>
+                                                                <state key="normal" title="Switch Second View"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                        <color key="value" red="0.090196078430000007" green="0.16862745100000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                        <real key="value" value="0.16"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                        <size key="value" width="0.0" height="4"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowBlur">
+                                                                        <real key="value" value="16"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowSpread">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="actionChangeView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z2u-WQ-4nD"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCB-Qg-km6" customClass="CNGradientButton" customModule="NCanUtils">
+                                                                <rect key="frame" x="16" y="350" width="288" height="44"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="44" id="kcv-Gl-i9N"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Move to Button Style">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                        <color key="value" red="0.090196078430000007" green="0.16862745100000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                        <real key="value" value="0.16"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                        <size key="value" width="0.0" height="4"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowBlur">
+                                                                        <real key="value" value="16"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowSpread">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <segue destination="sxi-G6-qV9" kind="show" id="YuI-Ra-sRo"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <directionalEdgeInsets key="directionalLayoutMargins" top="20" leading="16" bottom="16" trailing="16"/>
                                                     </stackView>
@@ -393,6 +339,442 @@
             </objects>
             <point key="canvasLocation" x="138.75" y="100.35211267605634"/>
         </scene>
+        <!--Custom Buttons-->
+        <scene sceneID="PBu-kE-oJr">
+            <objects>
+                <viewController id="sxi-G6-qV9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="unv-h9-7jd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcy-fI-Fwd">
+                                <rect key="frame" x="0.0" y="44" width="320" height="956"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVe-Ur-ztc" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="888"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CNValueButton" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3v-4h-hqN">
+                                                <rect key="frame" x="16" y="20" width="101.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.53725490200000003" green="0.57647058819999997" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFI-AI-wg4" userLabel="Group View 1" customClass="CNDefaultShadowView" customModule="NCanUtils">
+                                                <rect key="frame" x="16" y="47" width="288" height="168"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oTe-wG-PKx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="168"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8n-s2-TSd" customClass="CNValueButton" customModule="NCanUtils">
+                                                                <rect key="frame" x="0.0" y="0.0" width="288" height="56"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-settings"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Title Text"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="value" value="Value Text"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anA-zo-27N" customClass="CNValueButton" customModule="NCanUtils">
+                                                                <rect key="frame" x="0.0" y="56" width="288" height="56"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-contact"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="arrow" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Title Text"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="value" value="Value Text"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xg-RS-Kj4" customClass="CNValueButton" customModule="NCanUtils">
+                                                                <rect key="frame" x="0.0" y="112" width="288" height="56"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-coupon"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Title Text"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="value" value="Value Text"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="arrow" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="skipArrowSpace" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="168" id="5vF-Mg-ccF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="oTe-wG-PKx" secondAttribute="trailing" id="7MA-ew-qmX"/>
+                                                    <constraint firstItem="oTe-wG-PKx" firstAttribute="leading" secondItem="hFI-AI-wg4" secondAttribute="leading" id="Iap-kZ-C3s"/>
+                                                    <constraint firstAttribute="bottom" secondItem="oTe-wG-PKx" secondAttribute="bottom" id="Niv-eA-pIs"/>
+                                                    <constraint firstItem="oTe-wG-PKx" firstAttribute="top" secondItem="hFI-AI-wg4" secondAttribute="top" id="kQ6-Rw-L8P"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CNNextButton" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRQ-zL-HST">
+                                                <rect key="frame" x="16" y="235" width="95.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.53725490200000003" green="0.57647058819999997" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKn-hr-ZBQ" userLabel="Group View 2" customClass="CNDefaultShadowView" customModule="NCanUtils">
+                                                <rect key="frame" x="16" y="262" width="288" height="168"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="h1j-xc-6Ka">
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="168"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkD-Fe-x5y" customClass="CNNextButton" customModule="NCanUtils">
+                                                                <rect key="frame" x="0.0" y="0.0" width="288" height="56"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-settings"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="Primay Text"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryText" value="Secondary Text"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8b-Wg-B8I" customClass="CNNextButton" customModule="NCanUtils">
+                                                                <rect key="frame" x="0.0" y="56" width="288" height="56"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-contact"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="Primary Text"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKS-4s-4tb" customClass="CNNextButton" customModule="NCanUtils">
+                                                                <rect key="frame" x="0.0" y="112" width="288" height="56"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-coupon"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="arrow" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="Primary Text"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="divider" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="h1j-xc-6Ka" firstAttribute="top" secondItem="vKn-hr-ZBQ" secondAttribute="top" id="dMs-it-Upm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="h1j-xc-6Ka" secondAttribute="bottom" id="fgF-ui-j3p"/>
+                                                    <constraint firstAttribute="height" constant="168" id="iH6-zX-EVd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="h1j-xc-6Ka" secondAttribute="trailing" id="ocu-zH-Ht0"/>
+                                                    <constraint firstItem="h1j-xc-6Ka" firstAttribute="leading" secondItem="vKn-hr-ZBQ" secondAttribute="leading" id="vbI-q8-qBI"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CNMenuButton" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRu-Js-AnB">
+                                                <rect key="frame" x="16" y="450" width="101.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.53725490200000003" green="0.57647058819999997" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Avh-6U-Fzh" userLabel="Group View 3" customClass="CNDefaultShadowView" customModule="NCanUtils">
+                                                <rect key="frame" x="16" y="477" width="288" height="391"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="8wG-aW-Qbg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="184.5"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fGs-E2-MuN">
+                                                                <rect key="frame" x="0.0" y="0.0" width="288" height="89.5"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81s-jA-XnY" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="92" height="89.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="81s-jA-XnY" secondAttribute="height" multiplier="175:170" id="deH-Fe-o8Q"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-cash"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title">
+                                                                                <string key="value">Unique
+Raw Value 0</string>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WbH-x5-iGI" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="98" y="0.0" width="92" height="89.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-card"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Top 1"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEW-Jn-2iK" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="196" y="0.0" width="92" height="89.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-card"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Bottom 2"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="2"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="zib-ac-goa">
+                                                                <rect key="frame" x="0.0" y="95.5" width="288" height="89"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-wX-7f2" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="92" height="89"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="jgP-wX-7f2" secondAttribute="height" multiplier="175:170" id="BDC-id-F6Z"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-cash"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Center 5"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBv-jz-XpT" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="98" y="0.0" width="92" height="89"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-card"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Left 3"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="3"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ni8-5e-LOe" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="196" y="0.0" width="92" height="89"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-card"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Right 4"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="4"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="O8e-o9-73t">
+                                                        <rect key="frame" x="0.0" y="204.5" width="288" height="186.5"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="onK-ek-EOF">
+                                                                <rect key="frame" x="0.0" y="0.0" width="288" height="93"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DmM-1o-mCu" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="95.5" height="93"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="DmM-1o-mCu" secondAttribute="height" multiplier="175:170" id="zX2-iT-nhA"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-cash"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title">
+                                                                                <string key="value">Top Left
+Raw Value 6</string>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="6"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfY-5d-dVO" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="96.5" y="0.0" width="95" height="93"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="cfY-5d-dVO" secondAttribute="height" multiplier="175:170" id="M4x-no-ajU"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-cash"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Center 5"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pj2-0K-ddV" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="192.5" y="0.0" width="95.5" height="93"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-card"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Top Right 7"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="7"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="cfY-5d-dVO" firstAttribute="width" secondItem="cfY-5d-dVO" secondAttribute="height" multiplier="175:170" id="3iB-Ik-nKA"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="h6j-7l-98c">
+                                                                <rect key="frame" x="0.0" y="94" width="288" height="92.5"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHT-Gf-HzO" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="95.5" height="92.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="DHT-Gf-HzO" secondAttribute="height" multiplier="175:170" id="RaS-Kl-PaI"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-cash"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Bottom Left 8"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcA-Yj-xSB" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="96.5" y="0.0" width="95" height="92.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="lcA-Yj-xSB" secondAttribute="height" multiplier="175:170" id="vS3-6r-YCJ"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-cash"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Center 5"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wH5-qr-wBG" customClass="CNMenuButton" customModule="NCanUtils">
+                                                                        <rect key="frame" x="192.5" y="0.0" width="95.5" height="92.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-card"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Bottom Right 9"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="viewPosition">
+                                                                                <integer key="value" value="9"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleSize">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="lcA-Yj-xSB" firstAttribute="width" secondItem="lcA-Yj-xSB" secondAttribute="height" multiplier="175:170" id="tkY-QN-rrJ"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="8wG-aW-Qbg" secondAttribute="trailing" id="08F-AZ-glc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="O8e-o9-73t" secondAttribute="bottom" id="6Kl-M3-rYd"/>
+                                                    <constraint firstItem="8wG-aW-Qbg" firstAttribute="leading" secondItem="Avh-6U-Fzh" secondAttribute="leading" id="9dV-d7-WGe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="O8e-o9-73t" secondAttribute="trailing" id="Nf1-EH-TfF"/>
+                                                    <constraint firstItem="8wG-aW-Qbg" firstAttribute="top" secondItem="Avh-6U-Fzh" secondAttribute="top" id="OAx-Js-WWS"/>
+                                                    <constraint firstItem="O8e-o9-73t" firstAttribute="leading" secondItem="Avh-6U-Fzh" secondAttribute="leading" id="XHl-yS-HmW"/>
+                                                    <constraint firstItem="O8e-o9-73t" firstAttribute="top" secondItem="8wG-aW-Qbg" secondAttribute="bottom" constant="20" id="ydH-yn-lw1"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hFI-AI-wg4" secondAttribute="trailing" constant="16" id="5Sv-aL-hUc"/>
+                                            <constraint firstItem="vKn-hr-ZBQ" firstAttribute="leading" secondItem="AVe-Ur-ztc" secondAttribute="leading" constant="16" id="7PR-Ys-GSZ"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="o3v-4h-hqN" secondAttribute="trailing" constant="16" id="9OQ-jU-SJa"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TRu-Js-AnB" secondAttribute="trailing" constant="16" id="DES-ao-4de"/>
+                                            <constraint firstItem="oRQ-zL-HST" firstAttribute="top" secondItem="hFI-AI-wg4" secondAttribute="bottom" constant="20" id="Ebi-Dz-75K"/>
+                                            <constraint firstItem="oRQ-zL-HST" firstAttribute="leading" secondItem="AVe-Ur-ztc" secondAttribute="leading" constant="16" id="GZg-Qw-asK"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oRQ-zL-HST" secondAttribute="trailing" constant="16" id="M41-Tb-ybw"/>
+                                            <constraint firstItem="TRu-Js-AnB" firstAttribute="leading" secondItem="AVe-Ur-ztc" secondAttribute="leading" constant="16" id="O3j-RS-3Ba"/>
+                                            <constraint firstItem="Avh-6U-Fzh" firstAttribute="leading" secondItem="AVe-Ur-ztc" secondAttribute="leading" constant="16" id="O9O-u5-94L"/>
+                                            <constraint firstItem="Avh-6U-Fzh" firstAttribute="top" secondItem="TRu-Js-AnB" secondAttribute="bottom" constant="10" id="VBK-Ap-mf3"/>
+                                            <constraint firstItem="vKn-hr-ZBQ" firstAttribute="top" secondItem="oRQ-zL-HST" secondAttribute="bottom" constant="10" id="XWn-UN-4t8"/>
+                                            <constraint firstItem="hFI-AI-wg4" firstAttribute="leading" secondItem="AVe-Ur-ztc" secondAttribute="leading" constant="16" id="avE-Cf-Ned"/>
+                                            <constraint firstAttribute="trailing" secondItem="Avh-6U-Fzh" secondAttribute="trailing" constant="16" id="bV4-hs-JNm"/>
+                                            <constraint firstItem="o3v-4h-hqN" firstAttribute="top" secondItem="AVe-Ur-ztc" secondAttribute="top" constant="20" id="iFq-Kl-tvR"/>
+                                            <constraint firstItem="TRu-Js-AnB" firstAttribute="top" secondItem="vKn-hr-ZBQ" secondAttribute="bottom" constant="20" id="k6A-5S-9Cj"/>
+                                            <constraint firstAttribute="bottom" secondItem="Avh-6U-Fzh" secondAttribute="bottom" constant="20" id="kni-kJ-k12"/>
+                                            <constraint firstAttribute="trailing" secondItem="vKn-hr-ZBQ" secondAttribute="trailing" constant="16" id="mVj-FO-jNJ"/>
+                                            <constraint firstItem="hFI-AI-wg4" firstAttribute="top" secondItem="o3v-4h-hqN" secondAttribute="bottom" constant="10" id="raF-xz-oNy"/>
+                                            <constraint firstItem="o3v-4h-hqN" firstAttribute="leading" secondItem="AVe-Ur-ztc" secondAttribute="leading" constant="16" id="xAb-Vm-gm0"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="AVe-Ur-ztc" firstAttribute="leading" secondItem="mcy-fI-Fwd" secondAttribute="leading" id="8RX-TM-hdA"/>
+                                    <constraint firstAttribute="bottom" secondItem="AVe-Ur-ztc" secondAttribute="bottom" id="I6B-ft-nI0"/>
+                                    <constraint firstItem="AVe-Ur-ztc" firstAttribute="top" secondItem="mcy-fI-Fwd" secondAttribute="top" id="aFM-XO-yZ1"/>
+                                    <constraint firstAttribute="trailing" secondItem="AVe-Ur-ztc" secondAttribute="trailing" id="ytZ-Ir-Scl"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98431372549019602" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="mcy-fI-Fwd" firstAttribute="top" secondItem="Uur-Wd-YQV" secondAttribute="top" id="6Ac-Rl-tYr"/>
+                            <constraint firstItem="mcy-fI-Fwd" firstAttribute="leading" secondItem="Uur-Wd-YQV" secondAttribute="leading" id="Hxn-5J-2Oc"/>
+                            <constraint firstItem="mcy-fI-Fwd" firstAttribute="trailing" secondItem="Uur-Wd-YQV" secondAttribute="trailing" id="Ik8-0b-9xP"/>
+                            <constraint firstItem="AVe-Ur-ztc" firstAttribute="height" secondItem="unv-h9-7jd" secondAttribute="height" priority="250" id="KKd-an-qVz"/>
+                            <constraint firstItem="AVe-Ur-ztc" firstAttribute="width" secondItem="unv-h9-7jd" secondAttribute="width" id="PFf-h3-7bV"/>
+                            <constraint firstItem="mcy-fI-Fwd" firstAttribute="bottom" secondItem="Uur-Wd-YQV" secondAttribute="bottom" id="x7W-Fc-M1C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uur-Wd-YQV"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Custom Buttons" largeTitleDisplayMode="never" id="GTg-LM-gq6"/>
+                    <size key="freeformSize" width="320" height="1000"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TE7-yj-uJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1087.5" y="97.183098591549296"/>
+        </scene>
         <!--Second View Controller-->
         <scene sceneID="od9-MW-Urq">
             <objects>
@@ -408,8 +790,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDn-Tr-fLW">
-                                <rect key="frame" x="116" y="110.5" width="88" height="30"/>
-                                <state key="normal" title="To First View"/>
+                                <rect key="frame" x="100.5" y="110.5" width="119" height="30"/>
+                                <state key="normal" title="Switch Root View"/>
                                 <connections>
                                     <action selector="actionChangeView:" destination="aa6-oN-FOl" eventType="touchUpInside" id="wJV-Bk-vDe"/>
                                 </connections>
@@ -421,40 +803,10 @@
                                     <constraint firstAttribute="width" secondItem="g77-vD-5BU" secondAttribute="height" multiplier="4:3" id="pb3-t5-rIc"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="28l-la-dcG">
-                                <rect key="frame" x="16" y="248.5" width="288" height="132"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0A-mm-n0a" customClass="CNMenuButton" customModule="NCanUtils">
-                                        <rect key="frame" x="0.0" y="0.0" width="136" height="132"/>
-                                        <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="N0A-mm-n0a" secondAttribute="height" multiplier="175:170" id="PEH-GU-IKo"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-cash"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="title">
-                                                <string key="value">Nạp tiền mặt
-tại máy Dropfoods</string>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2w-bY-sbP" customClass="CNMenuButton" customModule="NCanUtils">
-                                        <rect key="frame" x="152" y="0.0" width="136" height="132"/>
-                                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-menu-button-card"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Nạp bằng thẻ"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="28l-la-dcG" firstAttribute="leading" secondItem="Z9c-4a-OhF" secondAttribute="leading" constant="16" id="4J1-W2-i6l"/>
                             <constraint firstItem="g77-vD-5BU" firstAttribute="top" secondItem="kDn-Tr-fLW" secondAttribute="bottom" constant="28" id="69G-8i-ka4"/>
-                            <constraint firstItem="Z9c-4a-OhF" firstAttribute="trailing" secondItem="28l-la-dcG" secondAttribute="trailing" constant="16" id="IHG-RT-ITc"/>
-                            <constraint firstItem="28l-la-dcG" firstAttribute="top" secondItem="g77-vD-5BU" secondAttribute="bottom" constant="20" id="Ro5-eu-boI"/>
                             <constraint firstItem="eXH-kh-mov" firstAttribute="top" secondItem="Z9c-4a-OhF" secondAttribute="top" constant="60" id="SBx-BS-P9P"/>
                             <constraint firstItem="kDn-Tr-fLW" firstAttribute="top" secondItem="eXH-kh-mov" secondAttribute="bottom" constant="30" id="dyk-Oq-yrx"/>
                             <constraint firstItem="kDn-Tr-fLW" firstAttribute="centerX" secondItem="Z9c-4a-OhF" secondAttribute="centerX" id="gCi-rD-nvK"/>
@@ -463,13 +815,14 @@ tại máy Dropfoods</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z9c-4a-OhF"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8IX-ui-Aum"/>
                     <connections>
                         <outlet property="viewImage" destination="g77-vD-5BU" id="DUb-jS-uCu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wj7-KC-zwb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="100"/>
+            <point key="canvasLocation" x="139" y="848"/>
         </scene>
     </scenes>
     <resources>

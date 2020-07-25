@@ -24,7 +24,7 @@ open class CNLineButton: DesignableButton {
         }
     }
     
-    @IBInspectable public var borderWidth: CGFloat = 1 {
+    @IBInspectable public var borderWidth: CGFloat = CNManager.shared.style.borderWidth {
         didSet {
             refreshBorder()
         }
@@ -32,7 +32,13 @@ open class CNLineButton: DesignableButton {
 
     @IBInspectable public var effectTitleColor: Bool = false {
         didSet {
-            refreshBorder()
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable public var defaultTitleColor: Bool = false {
+        didSet {
+            setNeedsDisplay()
         }
     }
     
@@ -40,7 +46,7 @@ open class CNLineButton: DesignableButton {
         super.init(frame: frame)
         initialValues()
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialValues()
@@ -51,6 +57,8 @@ open class CNLineButton: DesignableButton {
         // Set title color
         if effectTitleColor, let color = generateLinearGradientColor(colors: border.colors, direction: .vertical, rect: bounds) {
             setTitleColor(color, for: .normal)
+        } else if defaultTitleColor {
+            setTitleColor(CNManager.shared.style.button.primaryColor, for: .normal)
         }
     }
     
@@ -75,7 +83,6 @@ open class CNLineButton: DesignableButton {
         border.colors = colors
         border.width = borderWidth
     }
-
 }
 
 #endif

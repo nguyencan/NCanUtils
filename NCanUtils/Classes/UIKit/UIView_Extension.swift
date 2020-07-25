@@ -277,22 +277,22 @@ public extension UIView {
     /// NCanUtils: Set some or all corners radiuses of view.
     ///
     /// - Parameters:
+    ///   - position: position of view in grid view
+    ///   - radius: radius for selected corners.
+    func addRoundCorners(
+        position: GridPosition = .unique,
+        radius: CGFloat = CNManager.shared.style.cornerRadius)
+    {
+        let style = position.toCorners(radius: radius)
+        addRoundCorners(style.corners, radius: style.radius)
+    }
+    
+    /// NCanUtils: Set some or all corners radiuses of view.
+    ///
+    /// - Parameters:
     ///   - position: position of view in list.
-    func addDefaultRounded(_ position: Position = .unique) {
-        switch position {
-        case .unique:
-            addRoundCorners(.allCorners)
-            break
-        case .center:
-            addRoundCorners(.allCorners, radius: 0)
-            break
-        case .top:
-            addRoundCorners([.topLeft, .topRight])
-            break
-        case .bottom:
-            addRoundCorners([.bottomLeft, .bottomRight])
-            break
-        }
+    func addDefaultRounded(_ position: GridPosition = .unique) {
+        addRoundCorners(position: position, radius: CNManager.shared.style.cornerRadius)
     }
     
     private func checkAndUpdateRoundedStyle(
@@ -579,9 +579,9 @@ public extension UIView {
         layer.masksToBounds = false
     }
     
-    func addDefaultShadow(_ position: Position = .unique) {
-        switch position {
-        case .unique, .center:
+    func addDefaultShadow(_ side: ShadowSide = .center) {
+        switch side {
+        case .center:
             addSketchShadow()
             break
         case .top:

@@ -60,12 +60,26 @@ open class CNMenuButton: DesignableControl {
         }
     }
 
-    @IBInspectable public var cornerRadius: CGFloat = CNManager.shared.style.menu.cornerRadius {
+    @IBInspectable var shadow: Bool = false {
         didSet {
-            layer.cornerRadius = cornerRadius
             setNeedsDisplay()
         }
     }
+    
+    @IBInspectable var rounded: Bool = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    @IBInspectable var viewPosition: Int = GridPosition.unique.rawValue {
+        didSet {
+            position = GridPosition(rawValue: viewPosition)
+            setNeedsDisplay()
+        }
+    }
+    
+    public var position: GridPosition = .unique
     
     open override var isHighlighted: Bool {
         didSet {
@@ -73,27 +87,34 @@ open class CNMenuButton: DesignableControl {
         }
     }
     
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        initialValues()
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        initialValues()
-    }
-    
     open override func draw(_ rect: CGRect) {
+        if rounded {
+            let radius: CGFloat
+            if corners.radius > 0 {
+                radius = corners.radius
+            } else {
+                radius = CNManager.shared.style.menu.cornerRadius
+            }
+            corners = position.toCorners(radius: radius)
+        } else {
+            corners.radius = 0
+        }
         super.draw(rect)
+        // Draw subviews
+        drawSubviews(rect: rect)
+        // Draw shadow
+        if shadow {
+            addShadow()
+        } else {
+            removeShadow()
+        }
+    }
+}
 
-        drawValues(rect: rect)
-    }
+// MARK: - Draw custom view
+extension CNMenuButton {
     
-    private func initialValues() {
-        layer.cornerRadius = cornerRadius
-    }
-    
-    private func drawValues(rect: CGRect) {
+    private func drawSubviews(rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }

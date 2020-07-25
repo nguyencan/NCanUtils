@@ -14,12 +14,6 @@ public class CNProgressPointsView: UIView {
     
     private final let progressLayerName = "ProgressLayerName"
     
-    public enum Position: Int {
-        case center = 0
-        case top = 1
-        case bottom = 2
-    }
-    
     @IBInspectable public var startColor: UIColor? = nil {
         didSet {
             isNeedRedrawProgressLayer = true
@@ -50,7 +44,7 @@ public class CNProgressPointsView: UIView {
         }
     }
     
-    public var alignment: Position = .center {
+    public var alignment: GridPosition = .center {
         didSet {
             isNeedRedrawProgressLayer = true
         }
@@ -130,18 +124,11 @@ extension CNProgressPointsView {
         let angle = CGFloat.pi * 2 / CGFloat(pointCount)
         
         let width: CGFloat = getContainerSize()
-        let x: CGFloat = (self.bounds.width - width) / 2
-        let y: CGFloat
-        if alignment == .top {
-            y = 0
-        } else if alignment == .bottom {
-            y = self.bounds.height - width
-        } else {
-            y = (self.bounds.height - width) / 2
-        }
+        let size: CGSize = CGSize(width: width, height: width)
+        let point: CGPoint = alignment.toOrigin(in: self.bounds, size: size)
         
         let replicatorLayer = CAReplicatorLayer()
-        replicatorLayer.frame = CGRect(x: x, y: y, width: width, height: width)
+        replicatorLayer.frame = CGRect(origin: point, size: size)
         replicatorLayer.name = progressLayerName
         
         self.layer.addSublayer(replicatorLayer)

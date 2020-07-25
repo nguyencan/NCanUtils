@@ -132,6 +132,10 @@ extension UIView {
         }
         result.frame = layerFrame
         result.cornerRadius = layer.cornerRadius
+        if #available(iOS 11.0, *) {
+            result.maskedCorners = layer.maskedCorners
+        }
+        result.shadowPath = layer.shadowPath
         result.instanceCount = 1
         result.instanceDelay = 0
         

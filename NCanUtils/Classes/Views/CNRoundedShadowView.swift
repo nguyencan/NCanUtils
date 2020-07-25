@@ -49,9 +49,10 @@ open class CNRoundedShadowView: DesignableView {
     }
 
     open override func draw(_ rect: CGRect) {
+        // Draw rounded corners
         layer.cornerRadius = cornerRadius
         super.draw(rect)
-
+        // Draw shadow
         addSketchShadow(color: shadowColor, alpha: shadowAlpha, x: shadowOffset.width, y: shadowOffset.height, blur: shadowBlur, spread: shadowSpread)
     }
 }

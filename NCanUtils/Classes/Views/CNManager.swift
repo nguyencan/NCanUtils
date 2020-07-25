@@ -27,6 +27,7 @@ public class CNViewStyle {
     public var gradientEndColor: UIColor = UIColor(hex: 0x3BB2B8)
     
     public var button = ButtonStyle()
+    public var value = ValueStyle()
     public var menu = MenuStyle()
     public var progress = ProgressStyle()
 }
@@ -52,10 +53,20 @@ public class ButtonStyle {
     public var secondaryColor: UIColor = UIColor(hex: 0x8993A4)
     public var secondarySize: CGFloat = 12
     
-    public var horizontalSpace: CGFloat = 16
+    public var padding: CGFloat = 16
     public var lineSpace: CGFloat = 2
     
     public var dividerColor: UIColor = UIColor(hex: 0xF4F5F7)
+    
+    public var cornerRadius: CGFloat = 5
+}
+
+public class ValueStyle {
+    
+    public var titleColor: UIColor = UIColor(hex: 0x8993A4)
+    public var valueColor: UIColor = UIColor(hex: 0x172B4D)
+    
+    public var textSize: CGFloat = 16
 }
 
 public class MenuStyle {
@@ -68,6 +79,7 @@ public class MenuStyle {
     public var padding: CGFloat = 16
     public var titleLeftSpace: CGFloat = 8
     public var titleTopSpace: CGFloat = 8
+    
     public var cornerRadius: CGFloat = 16
 }
 
