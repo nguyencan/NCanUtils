@@ -84,17 +84,26 @@ open class CNNextButton: DesignableControl {
         }
     }
     
-    @IBInspectable var rounded: Bool = false {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
-    
     @IBInspectable var shadow: Bool = false {
         didSet {
             setNeedsDisplay()
         }
     }
+    
+    @IBInspectable var rounded: Bool = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    @IBInspectable var viewPosition: Int = GridPosition.unique.rawValue {
+        didSet {
+            position = GridPosition(rawValue: viewPosition)
+            setNeedsDisplay()
+        }
+    }
+    
+    public var position: GridPosition = .unique
     
     private let strictSpace: CGFloat = 5
     
@@ -106,7 +115,13 @@ open class CNNextButton: DesignableControl {
     
     open override func draw(_ rect: CGRect) {
         if rounded {
-            corners.radius = CNManager.shared.style.button.cornerRadius
+            let radius: CGFloat
+            if corners.radius > 0 {
+                radius = corners.radius
+            } else {
+                radius = CNManager.shared.style.button.cornerRadius
+            }
+            corners = position.toCorners(radius: radius)
         } else {
             corners.radius = 0
         }

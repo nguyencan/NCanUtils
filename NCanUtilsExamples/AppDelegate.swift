@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CNManager.shared.style.progress.bgEndColor = UIColor(hex: 0x05080E)
         
         CNManager.shared.style.button.rippleEffect = true
-        CNManager.shared.style.button.rippleColor = .green
         
         return true
     }

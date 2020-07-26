@@ -29,6 +29,7 @@ public class CNViewStyle {
     public var button = ButtonStyle()
     public var value = ValueStyle()
     public var menu = MenuStyle()
+    public var circle = CircleStyle()
     public var progress = ProgressStyle()
 }
 
@@ -81,6 +82,16 @@ public class MenuStyle {
     public var titleTopSpace: CGFloat = 8
     
     public var cornerRadius: CGFloat = 16
+}
+
+public class CircleStyle {
+    
+    public var overlayColor: UIColor = UIColor(white: 0, alpha: 0.5)
+    
+    public var borderColor: UIColor = UIColor(hex: 0xF4F5F7)
+    public var borderWidth: CGFloat = 2
+    
+    public var padding: CGFloat = 4
 }
 
 public class CNManager {

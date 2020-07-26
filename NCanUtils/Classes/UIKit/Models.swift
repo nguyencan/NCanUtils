@@ -194,3 +194,7 @@ public enum GridPosition: Int {
 public enum DrawStyle: Int {
     case fill, line
 }
+
+public enum ShapeStyle: Int {
+    case rectangle, circle
+}

@@ -61,6 +61,10 @@ public extension CGRect {
                                       y: minY - sizeDelta.height * anchor.y),
                       size: size)
     }
+    
+    func addMargin(_ margin: CGFloat) -> CGRect {
+        return CGRect(x: origin.x + margin, y: origin.y + margin, width: size.width - 2*margin, height: size.height - 2*margin)
+    }
 
     #if canImport(UIKit)
     func draw(style: DrawStyle = .fill, color: UIColor) {
@@ -77,6 +81,41 @@ public extension CGRect {
         
     }
     #endif
+    
+    func getDrawRect(shape: CGSize) -> CGRect {
+        let resultSize: CGSize
+        if shape.width > self.width || shape.height > self.height {
+            let widthRadio: CGFloat = shape.width/self.width
+            let heightRadio: CGFloat = shape.height/self.height
+            let raido: CGFloat = (widthRadio > heightRadio) ? widthRadio : heightRadio
+            resultSize = CGSize(width: ceil(shape.width/raido), height: ceil(shape.height/raido))
+        } else {
+            resultSize = shape
+        }
+        let resultPoint = CGPoint(
+            x: floor(self.origin.x + (self.width - resultSize.width)/2),
+            y: floor(self.origin.y + (self.height - resultSize.height)/2))
+        
+        return CGRect(origin: resultPoint, size: resultSize)
+    }
+    
+    func getAspectFillRect(shape: CGSize) -> CGRect {
+        let widthRadio: CGFloat = shape.width/self.width
+        let heightRadio: CGFloat = shape.height/self.height
+        let width: CGFloat
+        let height: CGFloat
+        if widthRadio > heightRadio {
+            height = self.height
+            width = ceil(height*shape.width/shape.height)
+        } else {
+            width = self.width
+            height = ceil(width*shape.height/shape.width)
+        }
+        let x: CGFloat = floor(self.origin.x + (self.width - width)/2)
+        let y: CGFloat = floor(self.origin.y + (self.height - height)/2)
+        
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
 }
 
 #endif

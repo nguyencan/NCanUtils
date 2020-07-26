@@ -189,26 +189,9 @@ extension CNMenuButton {
             y: padding,
             width: ceil(rect.width - 2*padding),
             height: ceil(maxY - padding))
-        let imageRect = calcImageRect(in: maxRect, imageSize: image.size)
+        let imageRect = maxRect.getDrawRect(shape: image.size)
 
         image.draw(in: imageRect, blendMode: .normal, alpha: alpha)
-    }
-    
-    private func calcImageRect(in rect: CGRect, imageSize: CGSize) -> CGRect {
-        let resultSize: CGSize
-        if imageSize.width > rect.width || imageSize.height > rect.height {
-            let widthRadio: CGFloat = imageSize.width/rect.width
-            let heightRadio: CGFloat = imageSize.height/rect.height
-            let raido: CGFloat = (widthRadio > heightRadio) ? widthRadio : heightRadio
-            resultSize = CGSize(width: ceil(imageSize.width/raido), height: ceil(imageSize.height/raido))
-        } else {
-            resultSize = imageSize
-        }
-        let resultPoint = CGPoint(
-            x: floor(rect.origin.x + (rect.width - resultSize.width)/2),
-            y: floor(rect.origin.y + (rect.height - resultSize.height)/2))
-        
-        return CGRect(origin: resultPoint, size: resultSize)
     }
 }
 

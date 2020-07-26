@@ -20,6 +20,7 @@
 		404D1B4724BD860700BAC2D7 /* DesignableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D1B4624BD860700BAC2D7 /* DesignableControl.swift */; };
 		4054133B24BEA19600E6462F /* CNNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054133A24BEA19500E6462F /* CNNextButton.swift */; };
 		4054133E24BEE56800E6462F /* CNRoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054133D24BEE56800E6462F /* CNRoundedShadowView.swift */; };
+		4064B79624CC0B8100D36D20 /* CNCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064B79524CC0B8100D36D20 /* CNCircleButton.swift */; };
 		406ADC1324559D0500D73051 /* NCanUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 406ADC1124559D0500D73051 /* NCanUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		406ADC342455BBE200D73051 /* KeyboardEventUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406ADC332455BBE200D73051 /* KeyboardEventUtility.swift */; };
 		406ADC362455BFC500D73051 /* CustomXibViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406ADC352455BFC500D73051 /* CustomXibViewUtility.swift */; };
@@ -90,6 +91,7 @@
 		404D1B4624BD860700BAC2D7 /* DesignableControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableControl.swift; sourceTree = "<group>"; };
 		4054133A24BEA19500E6462F /* CNNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNNextButton.swift; sourceTree = "<group>"; };
 		4054133D24BEE56800E6462F /* CNRoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNRoundedShadowView.swift; sourceTree = "<group>"; };
+		4064B79524CC0B8100D36D20 /* CNCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNCircleButton.swift; sourceTree = "<group>"; };
 		406ADC0E24559D0500D73051 /* NCanUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NCanUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		406ADC1124559D0500D73051 /* NCanUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCanUtils.h; sourceTree = "<group>"; };
 		406ADC1224559D0500D73051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				4054133A24BEA19500E6462F /* CNNextButton.swift */,
 				40BDBBCE24CA8F42002F43B3 /* CNValueButton.swift */,
 				40E1266224C551E400C10D4D /* CNMenuButton.swift */,
+				4064B79524CC0B8100D36D20 /* CNCircleButton.swift */,
 				4054133D24BEE56800E6462F /* CNRoundedShadowView.swift */,
 				407B4FC524BFF1D700C04BF5 /* CNDefaultShadowView.swift */,
 			);
@@ -455,6 +458,7 @@
 				404D1B4724BD860700BAC2D7 /* DesignableControl.swift in Sources */,
 				407B4FC624BFF1D700C04BF5 /* CNDefaultShadowView.swift in Sources */,
 				40D51A4C2457D62800BD856D /* UILabel_Extension.swift in Sources */,
+				4064B79624CC0B8100D36D20 /* CNCircleButton.swift in Sources */,
 				40AF0EEB24BC5CE2008240B8 /* CNProgressView.swift in Sources */,
 				40B17366245A9C3F00F6BDC8 /* UISwitch_Extension.swift in Sources */,
 				40DD077F2459322700C303D7 /* UITextView+HTMLString.swift in Sources */,

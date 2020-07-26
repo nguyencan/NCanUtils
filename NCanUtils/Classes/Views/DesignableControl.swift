@@ -117,8 +117,14 @@ open class DesignableControl: UIControl {
         addRoundCorners(corners.corners, radius: corners.radius)
         // Draw background if needs
         drawBackgroundIfNeeds(style: background, rounded: corners)
+        // Override subclass draw
+        subclassDraw(rect)
         // Draw border if needs
         drawBorderIfNeeds(style: border, rounded: corners)
+    }
+    
+    public func subclassDraw(_ rect: CGRect) {
+        // Override in subclass
     }
 }
 

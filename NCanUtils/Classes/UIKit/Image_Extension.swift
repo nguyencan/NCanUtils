@@ -276,6 +276,25 @@ public extension UIImage {
         draw(in: drawRect, blendMode: blendMode, alpha: alpha)
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
+    
+    func mask(color: UIColor) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        color.setFill()
+
+        let context = UIGraphicsGetCurrentContext()
+        context?.translateBy(x: 0, y: self.size.height)
+        context?.scaleBy(x: 1.0, y: -1.0)
+        context?.setBlendMode(CGBlendMode.normal)
+
+        let rect = CGRect(origin: .zero, size: self.size)
+        context?.clip(to: rect, mask: self.cgImage!)
+        context?.fill(rect)
+
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return result
+    }
 
     /// NCanUtils: UImage with background color
     ///
