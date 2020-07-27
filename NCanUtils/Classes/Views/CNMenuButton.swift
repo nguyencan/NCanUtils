@@ -189,7 +189,7 @@ extension CNMenuButton {
             y: padding,
             width: ceil(rect.width - 2*padding),
             height: ceil(maxY - padding))
-        let imageRect = maxRect.getDrawRect(shape: image.size)
+        let imageRect = maxRect.getDrawRect(shape: image.size, mode: .redraw)
 
         image.draw(in: imageRect, blendMode: .normal, alpha: alpha)
     }

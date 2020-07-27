@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "NCanUtils"
-  spec.version      = "1.0.2"
+  spec.version      = "1.0.3"
   spec.summary      = "NCanUtils is the library for iOS written in Swift"
 
   spec.description  = <<-DESC

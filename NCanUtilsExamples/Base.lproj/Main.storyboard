@@ -443,6 +443,9 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ic-plus"/>
                                                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="ic-avatar"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRg-6O-1TO" customClass="CNCircleButton" customModule="NCanUtils">

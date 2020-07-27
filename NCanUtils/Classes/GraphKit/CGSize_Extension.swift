@@ -9,6 +9,14 @@
 #if canImport(CoreGraphics)
 import CoreGraphics
 
+// MARK: - Initializers
+public extension CGSize {
+    
+    init(size: CGFloat) {
+        self.init(width: size, height: size)
+    }
+}
+
 // MARK: - Methods
 public extension CGSize {
 

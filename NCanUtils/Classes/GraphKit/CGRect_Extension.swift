@@ -63,7 +63,11 @@ public extension CGRect {
     }
     
     func addMargin(_ margin: CGFloat) -> CGRect {
-        return CGRect(x: origin.x + margin, y: origin.y + margin, width: size.width - 2*margin, height: size.height - 2*margin)
+        return CGRect(
+            x: origin.x + margin,
+            y: origin.y + margin,
+            width: size.width - 2*margin,
+            height: size.height - 2*margin)
     }
 
     #if canImport(UIKit)
@@ -82,40 +86,111 @@ public extension CGRect {
     }
     #endif
     
-    func getDrawRect(shape: CGSize) -> CGRect {
-        let resultSize: CGSize
-        if shape.width > self.width || shape.height > self.height {
-            let widthRadio: CGFloat = shape.width/self.width
-            let heightRadio: CGFloat = shape.height/self.height
-            let raido: CGFloat = (widthRadio > heightRadio) ? widthRadio : heightRadio
-            resultSize = CGSize(width: ceil(shape.width/raido), height: ceil(shape.height/raido))
-        } else {
-            resultSize = shape
-        }
-        let resultPoint = CGPoint(
-            x: floor(self.origin.x + (self.width - resultSize.width)/2),
-            y: floor(self.origin.y + (self.height - resultSize.height)/2))
-        
-        return CGRect(origin: resultPoint, size: resultSize)
+    #if canImport(UIKit)
+    func getDrawRect(shape: CGSize, margin: CGFloat, mode: UIView.ContentMode) -> CGRect {
+        getDrawRect(shape: shape, insets: UIEdgeInsets(inset: margin), mode: mode)
     }
+    #endif
     
-    func getAspectFillRect(shape: CGSize) -> CGRect {
-        let widthRadio: CGFloat = shape.width/self.width
-        let heightRadio: CGFloat = shape.height/self.height
-        let width: CGFloat
-        let height: CGFloat
-        if widthRadio > heightRadio {
-            height = self.height
-            width = ceil(height*shape.width/shape.height)
+    #if canImport(UIKit)
+    func getDrawRect(shape: CGSize, insets: UIEdgeInsets = .zero, mode: UIView.ContentMode) -> CGRect {
+        let mRect: CGRect = self.inset(by: insets)
+        let rSize: CGSize
+        let rOrigin: CGPoint
+        if mode == .center {
+            rSize = shape
+            rOrigin = CGPoint(
+                x: mRect.origin.x + (mRect.width - rSize.width)/2,
+                y: mRect.origin.y + (mRect.height - rSize.height)/2)
+        } else if mode == .top {
+            rSize = shape
+            rOrigin = CGPoint(
+                x: mRect.origin.x + (mRect.width - rSize.width)/2,
+                y: mRect.origin.y)
+        } else if mode == .bottom {
+            rSize = shape
+            rOrigin = CGPoint(
+                x: mRect.origin.x + (mRect.width - rSize.width)/2,
+                y: mRect.origin.y + (mRect.height - rSize.height))
+        } else if mode == .left {
+            rSize = shape
+            rOrigin = CGPoint(
+                x: mRect.origin.x,
+                y: mRect.origin.y + (mRect.height - rSize.height)/2)
+        } else if mode == .right {
+            rSize = shape
+            rOrigin = CGPoint(
+                x: mRect.origin.x + (mRect.width - rSize.width),
+                y: mRect.origin.y + (mRect.height - rSize.height)/2)
+        } else if mode == .topLeft {
+            rSize = shape
+            rOrigin = CGPoint(
+                x: mRect.origin.x,
+                y: mRect.origin.y)
+        } else if mode == .topRight {
+            rSize = shape
+            rOrigin = CGPoint(
+                x: mRect.origin.x + (mRect.width - rSize.width),
+                y: mRect.origin.y)
+        } else if mode == .bottomLeft {
+            rSize = shape
+            rOrigin = CGPoint(
+                x: mRect.origin.x,
+                y: mRect.origin.y + (mRect.height - rSize.height))
+        } else if mode == .bottomRight {
+            rSize = shape
+            rOrigin = CGPoint(
+                x: mRect.origin.x + (mRect.width - rSize.width),
+                y: mRect.origin.y + (mRect.height - rSize.height))
+        } else if mode == .redraw {
+            if shape.width > mRect.width || shape.height > mRect.height {
+                let wRadio: CGFloat = shape.width/mRect.width
+                let hRadio: CGFloat = shape.height/mRect.height
+                let raido: CGFloat = (wRadio > hRadio) ? wRadio : hRadio
+                rSize = CGSize(
+                    width: shape.width/raido,
+                    height: shape.height/raido)
+            } else {
+                rSize = shape
+            }
+            rOrigin = CGPoint(
+                x: mRect.origin.x + (mRect.width - rSize.width)/2,
+                y: mRect.origin.y + (mRect.height - rSize.height)/2)
+        } else if mode == .scaleAspectFit {
+            let wRadio: CGFloat = shape.width/mRect.width
+            let hRadio: CGFloat = shape.height/mRect.height
+            let raido: CGFloat = (wRadio > hRadio) ? wRadio : hRadio
+            rSize = CGSize(
+                width: shape.width/raido,
+                height: shape.height/raido)
+            rOrigin = CGPoint(
+                x: mRect.origin.x + (mRect.width - rSize.width)/2,
+                y: mRect.origin.y + (mRect.height - rSize.height)/2)
+        } else if mode == .scaleAspectFill {
+            let wRadio: CGFloat = shape.width/mRect.width
+            let hRadio: CGFloat = shape.height/mRect.height
+            let width: CGFloat
+            let height: CGFloat
+            if wRadio > hRadio {
+                height = mRect.height
+                width = height*shape.width/shape.height
+            } else {
+                width = mRect.width
+                height = width*shape.height/shape.width
+            }
+            rSize = CGSize(
+                width: width,
+                height: height)
+            rOrigin = CGPoint(
+                x: mRect.origin.x + (mRect.width - width)/2,
+                y: mRect.origin.y + (mRect.height - height)/2)
         } else {
-            width = self.width
-            height = ceil(width*shape.height/shape.width)
+            rSize = self.size
+            rOrigin = self.origin
         }
-        let x: CGFloat = floor(self.origin.x + (self.width - width)/2)
-        let y: CGFloat = floor(self.origin.y + (self.height - height)/2)
-        
-        return CGRect(x: x, y: y, width: width, height: height)
+        return CGRect(origin: rOrigin, size: rSize)
     }
+    #endif
 }
 
 #endif

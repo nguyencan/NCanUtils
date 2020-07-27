@@ -143,9 +143,10 @@ extension CNCircleButton {
         if bordered, borderWidth > 0 {
             boundary = boundary.addMargin(borderWidth)
         }
-        let rounded = UIBezierPath(roundedRect: boundary, byRoundingCorners: corners.corners, cornerRadii: CGSize(width: corners.radius, height: corners.radius))
+        let rounded = UIBezierPath(roundedRect: boundary, byRoundingCorners: corners.corners, cornerRadii: CGSize(size: boundary.width/2))
         rounded.addClip()
-        image.draw(in: boundary.getAspectFillRect(shape: image.size))
+        let imgRect = boundary.getDrawRect(shape: image.size, mode: .scaleAspectFill)
+        image.draw(in: imgRect)
         
         context?.restoreGState()
     }
@@ -156,8 +157,12 @@ extension CNCircleButton {
         let context = UIGraphicsGetCurrentContext()
         context?.saveGState()
         
+        var boundary = rect
+        if bordered, borderWidth > 0 {
+            boundary = boundary.addMargin(borderWidth)
+        }
         overlayColor.set()
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners.corners, cornerRadii: CGSize(width: corners.radius, height: corners.radius))
+        let path = UIBezierPath(roundedRect: boundary, byRoundingCorners: corners.corners, cornerRadii: CGSize(size: boundary.width/2))
         path.fill()
         
         context?.restoreGState()
@@ -172,16 +177,11 @@ extension CNCircleButton {
         if bordered, borderWidth > 0 {
             space += borderWidth
         }
-        let maxRect: CGRect = CGRect(
-            x: space,
-            y: space,
-            width: ceil(rect.width - 2*space),
-            height: ceil(rect.height - 2*space))
-        let imageRect = maxRect.getDrawRect(shape: image.size)
+        let imgRect = rect.getDrawRect(shape: image.size, margin: space, mode: .redraw)
         if let color = iconColor {
             image = image.mask(color: color) ?? image
         }
-        image.draw(in: imageRect, blendMode: .normal, alpha: alpha)
+        image.draw(in: imgRect, blendMode: .normal, alpha: alpha)
         
         context?.restoreGState()
     }
