@@ -164,6 +164,41 @@ public extension Date {
     var weekday: Int {
         return calendar.component(.weekday, from: self)
     }
+    
+    /// NCanUtils: Short time.
+    ///
+    ///     Date date = Date()
+    ///     date.hour -> 13
+    ///     date.minute -> 9
+    ///
+    ///     date.shortTime -> "13:09"
+    ///
+    var shortTime: String {
+        return Date.getShortTime(hour: hour, minute: minute)
+    }
+    
+    /**
+     NCanUtils: Get hour number of Date inlcude hours and minutes
+     
+     - Returns: Float value. Result is (hours + (minutes/60))
+     */
+    /// NCanUtils: Get hour number of Date inlcude hours and minutes
+    /// Returns: Float value. Result is (hours + (minutes/60))
+    ///
+    ///     Date date = Date()
+    ///     date.hour -> 13
+    ///     date.minute -> 30
+    ///
+    ///     date.hours -> 13.5
+    ///
+    var hours: Float {
+        let units: Set<Calendar.Component> = [.hour, .minute]
+        let components = calendar.dateComponents(units, from: self)
+        guard let hour = components.hour, let minute = components.minute else {
+            return 0
+        }
+        return (Float(hour) + Float(minute)/60)
+    }
 
     /// NCanUtils: Hour.
     ///
@@ -483,6 +518,17 @@ public extension Date {
     ///
     var unixTimestamp: Double {
         return timeIntervalSince1970
+    }
+    
+    /// NCanUtils: Get TimeZone of Date in Interger type
+    ///
+    var timeZone: Int {
+        let units: Set<Calendar.Component> = [.year, .month, .day, .timeZone]
+        let components = calendar.dateComponents(units, from: self)
+        guard let value = components.timeZone?.offsetIntFromGMT else {
+            return 0
+        }
+        return value
     }
 
 }
@@ -838,6 +884,30 @@ public extension Date {
         let componentValue = components.value(for: component)!
         return abs(componentValue) <= value
     }
+}
+
+public extension Date {
+    
+    /// NCanUtils: Random date between two dates.
+    ///
+    /// - Parameters:
+    ///   - fromDate: minimum date (default is Date.distantPast)
+    ///   - toDate: maximum date (default is Date.distantFuture)
+    /// - Returns: random date between two dates.
+    ///
+    static func random(from fromDate: Date = Date.distantPast, upTo toDate: Date = Date.distantFuture) -> Date {
+        guard fromDate != toDate else {
+            return fromDate
+        }
+        
+        let diff = llabs(Int64(toDate.timeIntervalSinceReferenceDate - fromDate.timeIntervalSinceReferenceDate))
+        var randomValue: Int64 = 0
+        arc4random_buf(&randomValue, MemoryLayout<Int64>.size)
+        randomValue = llabs(randomValue%diff)
+        
+        let startReferenceDate = toDate > fromDate ? fromDate : toDate
+        return startReferenceDate.addingTimeInterval(TimeInterval(randomValue))
+    }
 
     /// NCanUtils: Returns a random date within the specified range.
     ///
@@ -880,7 +950,19 @@ public extension Date {
             TimeInterval.random(in: range.lowerBound.timeIntervalSinceReferenceDate...range.upperBound.timeIntervalSinceReferenceDate,
                                 using: &generator))
     }
-
+    
+    static func getShortTime(hour: Int, minute: Int) -> String {
+        var value: String = "\(hour)"
+        if hour < 10 {
+            value = "0\(value)"
+        }
+        if minute < 10 {
+            value = "\(value):0\(minute)"
+        } else {
+            value = "\(value):\(minute)"
+        }
+        return value
+    }
 }
 
 // MARK: - Initializers

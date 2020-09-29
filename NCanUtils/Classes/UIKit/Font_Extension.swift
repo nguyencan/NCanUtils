@@ -27,4 +27,14 @@ public extension UIFont {
     }
 }
 
+public extension UIFont {
+    
+    static func load(_ fontName: String, fontSize: CGFloat) -> UIFont {
+        if let font = UIFont(name: fontName, size: fontSize) {
+            return font
+        }
+        return UIFont.systemFont(ofSize: fontSize)
+    }
+}
+
 #endif

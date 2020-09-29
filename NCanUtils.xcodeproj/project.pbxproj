@@ -33,6 +33,7 @@
 		406ADC632455E07700D73051 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406ADC612455E07700D73051 /* Main.storyboard */; };
 		406ADC652455E07900D73051 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406ADC642455E07900D73051 /* Assets.xcassets */; };
 		406ADC682455E07900D73051 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406ADC662455E07900D73051 /* LaunchScreen.storyboard */; };
+		4072BF892522EC240005827F /* TimeZone_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072BF882522EC240005827F /* TimeZone_Extension.swift */; };
 		407B4FC624BFF1D700C04BF5 /* CNDefaultShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407B4FC524BFF1D700C04BF5 /* CNDefaultShadowView.swift */; };
 		40926747247F6E670058E86A /* Int_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40926746247F6E670058E86A /* Int_Extension.swift */; };
 		40A8BD9D24C141A10097A8AD /* CNGradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8BD9C24C141A10097A8AD /* CNGradientLabel.swift */; };
@@ -108,6 +109,7 @@
 		406ADC642455E07900D73051 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		406ADC672455E07900D73051 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		406ADC692455E07900D73051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4072BF882522EC240005827F /* TimeZone_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZone_Extension.swift; sourceTree = "<group>"; };
 		407B4FC524BFF1D700C04BF5 /* CNDefaultShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNDefaultShadowView.swift; sourceTree = "<group>"; };
 		40926746247F6E670058E86A /* Int_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int_Extension.swift; sourceTree = "<group>"; };
 		40A8BD9C24C141A10097A8AD /* CNGradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNGradientLabel.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				40249D6124573F3100EF8B5E /* Dictionary_Extension.swift */,
 				40D51A4124574B1F00BD856D /* URL_Extension.swift */,
 				40D51A432457534F00BD856D /* Date_Extension.swift */,
+				4072BF882522EC240005827F /* TimeZone_Extension.swift */,
 				406ADC392455CEDB00D73051 /* String_Extension.swift */,
 				40DD078B2459573300C303D7 /* Double_Extension.swift */,
 				40DD078D2459576D00C303D7 /* Float_Extension.swift */,
@@ -455,6 +458,7 @@
 				40249D6024573B4D00EF8B5E /* UserDefaults_Extension.swift in Sources */,
 				40D51A482457CDE800BD856D /* EdgeInsets_Extension.swift in Sources */,
 				40DD0794245963DD00C303D7 /* CNImageViewer.swift in Sources */,
+				4072BF892522EC240005827F /* TimeZone_Extension.swift in Sources */,
 				404D1B4724BD860700BAC2D7 /* DesignableControl.swift in Sources */,
 				407B4FC624BFF1D700C04BF5 /* CNDefaultShadowView.swift in Sources */,
 				40D51A4C2457D62800BD856D /* UILabel_Extension.swift in Sources */,
@@ -657,7 +661,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -671,7 +675,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.ncan.utils;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -687,7 +691,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -701,7 +705,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.ncan.utils;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

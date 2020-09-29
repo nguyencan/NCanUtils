@@ -51,6 +51,38 @@ public extension Array {
             return thisIndex < otherIndex
         }
     }
+    
+    /// NCanUtils: Returns an array without first element.
+    ///
+    ///         [1, 2, 3, 4, 5].copyWithoutLast() -> [2, 3, 4, 5]
+    ///
+    func copyWithoutFirst() -> Array {
+        var result: Array = []
+        for (index, item) in self.enumerated() {
+            if index > 0 {
+                result.append(item)
+            }
+        }
+        return result
+    }
+    
+    /// NCanUtils: Returns an array without last element.
+    ///
+    ///         [1, 2, 3, 4, 5].copyWithoutLast() -> [1, 2, 3, 4]
+    ///
+    func copyWithoutLast() -> Array {
+        var result: Array = []
+        var lastIndex = self.count - 1
+        if lastIndex < 0 {
+            lastIndex = 0
+        }
+        for (index, item) in self.enumerated() {
+            if index != lastIndex {
+                result.append(item)
+            }
+        }
+        return result
+    }
 }
 
 // MARK: - Methods (Equatable)
@@ -134,5 +166,19 @@ public extension Array where Element: Equatable {
     func withoutDuplicates<E: Hashable>(keyPath path: KeyPath<Element, E>) -> [Element] {
         var set = Set<E>()
         return filter { set.insert($0[keyPath: path]).inserted }
+    }
+    
+    /// NCanUtils: Returns an array without element in items parameter.
+    ///
+    ///         [1, 2, 3, 4, 5].copyWithout([2, 3]) -> [1, 4, 5]
+    ///
+    func copyWithout(_ items: [Element]) -> Array {
+        var result: Array = []
+        for item in self {
+            if !items.contains(item) {
+                result.append(item)
+            }
+        }
+        return result
     }
 }

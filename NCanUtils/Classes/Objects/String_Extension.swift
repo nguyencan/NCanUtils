@@ -65,6 +65,21 @@ public extension String {
         return defaultNumber
     }
     
+    func toDate(_ format: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        
+        if let date = dateFormatter.date(from: self) {
+            return date as Date?
+        } else {
+            return nil
+        }
+    }
+    
+    func toPlain() -> String {
+        return self.folding(options: .diacriticInsensitive, locale: .current).replacingOccurrences(of: "đ", with: "d")
+    }
+    
     func isValidNumericsPassword(limit: Int) -> Bool {
         if isEmpty {
             return true
@@ -84,14 +99,18 @@ public extension String {
         self = self.upercaseOnlyFirst()
     }
     
+    func containsPlain(_ string: String) -> Bool {
+        return compare(string, type: .containPlain)
+    }
+    
     func compare(_ string: String, type: CompareType) -> Bool {
         if type == .contain {
             return contains(string)
         } else if type == .equal {
             return self == string
         } else {
-            let diacriticSelf = self.lowercased().folding(options: .diacriticInsensitive, locale: .current).replacingOccurrences(of: "đ", with: "d")
-            let diacriticString = string.lowercased().folding(options: .diacriticInsensitive, locale: .current).replacingOccurrences(of: "đ", with: "d")
+            let diacriticSelf = self.lowercased().toPlain()
+            let diacriticString = string.lowercased().toPlain()
             if type == .containPlain {
                 return diacriticSelf.contains(diacriticString)
             } else {
