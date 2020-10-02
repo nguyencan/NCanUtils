@@ -33,6 +33,30 @@ public extension Array {
         guard startIndex..<endIndex ~= otherIndex else { return }
         swapAt(index, otherIndex)
     }
+    
+    /// NCanUtils: return an new array with split & swape the array at index position.
+    ///
+    ///        [1, 2, 3, 4, 5].swapeToFirstFrom(index: 3) -> [4, 5, 1, 2, 3]
+    ///        ["h", "e", "l", "l", "o"].swapeToFirstFrom(index: 2) -> ["l", "l", "o", "h", "e"]
+    ///
+    /// - Parameters:
+    ///   - index: index of start element.
+    func swapeToFirstFrom(index: Int) -> Array {
+        var result: Array = []
+        var position: Int = self.count - 1
+        while position >= index {
+            result.prepend(self[position])
+            position -= 1
+        }
+        if self.count > index {
+            position = 0
+            while position < index {
+                result.append(self[position])
+                position += 1
+            }
+        }
+        return result
+    }
 
     /// NCanUtils: Sort an array like another array based on a key path. If the other array doesn't contain a certain value, it will be sorted last.
     ///

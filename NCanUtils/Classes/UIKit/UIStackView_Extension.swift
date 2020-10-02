@@ -47,9 +47,14 @@ public extension UIStackView {
 
     /// NCanUtils: Removes all views in stack’s array of arranged subviews.
     func removeArrangedSubviews() {
-        for view in arrangedSubviews {
-            removeArrangedSubview(view)
+        let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
+            self.removeArrangedSubview(subview)
+            return allSubviews + [subview]
         }
+        // Deactivate all constraints
+        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
+        // Remove the views from self
+        removedSubviews.forEach({ $0.removeFromSuperview() })
     }
 
 }
